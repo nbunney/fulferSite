@@ -1,0 +1,125 @@
+html,body {
+    color: #1a4c1a;
+    font-family: "Verdana";
+    text-align: center;
+}
+.body {
+    min-height: calc(100vh - 250px);
+}
+.carouselImage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 350px;
+    position: relative;
+    height: 85vh;
+    opacity: 0.7;
+}
+#image1 {
+    background-image: url("CourtGavel.jpg");
+}
+#image2 {
+    background-image: url("Courtroom.jpg");
+}
+#image3 {
+    background-image: url("Books.jpg");
+}
+.carouselText {
+    color: white;
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    left: 0;
+    position: absolute;
+    margin-top: -200px;
+    text-shadow: 2px 1px 6px black;
+    width: 100%;
+    z-index: 20;
+}
+#gridContent {
+    background-color: #e2c99c;
+    padding-bottom: 30px;
+    padding-top: 50px;
+    margin: 0px;
+}
+.col-sm-4 {
+    padding-bottom: 20px;
+}
+.fa {
+    color: white;
+}
+.btn-xs {
+    background-color: inherit;
+    color: #1a4c1a;
+    border: solid 1px #1a4c1a;
+}
+#blockContent {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+h2 {
+    color: white;
+    font-family: 'Cinzel', serif;
+    text-shadow: 2px 1px 6px black;
+}
+h3 {
+    font-family: 'Cinzel', serif;
+}
+h4 {
+    font-family: 'Cinzel', serif;
+}
+#navbarContent ul li a {
+    color: #1a4c1a;
+    font-family: 'Cinzel', serif;
+}
+#navbar {
+    background-color: white;
+    opacity: 0.8;
+}
+#footer {
+    color: white;
+    background-color: #b18435;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7em;
+    min-height: 175px;
+    padding-left: 10px;
+    padding-top: 30px;
+    text-align: left;
+}
+#footerBox {
+    border-left: 1px solid;
+}
+#footerBox a {
+    color: inherit;
+    text-decoration: none;
+}
+#inventawebFooter {
+    color: white;
+    background-color: #765823;
+    font-size: 0.7em;
+    height: 25px;
+    padding-top: 5px;
+}
+.jumbotron {
+    background-image: url(CourtGavel.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.7;
+}
+#attorneyContent {
+    text-align: left;
+}
+#attorneyContent .row {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+#attorneyImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: -webkit-flex; /* For Safari */
+  -webkit-justify-content: center; /* For Safari */
+  -webkit-align-items: center; /* For Safari */
+}
