@@ -1,0 +1,77 @@
+{% include 'adminHeader.html' %}
+<div class="container">
+<!--Menu Category Area -->
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Manage News Items</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Search Terms</h4>
+      <ul id="termList">
+        <li><input id="newTerm"><button id="addBtn" type="button" class="btn btn-xs btn-primary pull-right">Add</button></li>
+      {% for t in terms %}
+        <li>{{t.term}}<i class="fa fa-close text-danger" data-id="{{t.id}}"></i></li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <h4>News Stories<i class="pull-right fa fa-refresh" id="refresh"></i></h4>
+      <ul id="newsList">
+        {% for n in news %}
+        <li>
+          <a href="{{n.url}}" class="title"><i class="fa fa-external-link"></i> {{n.title}}</a>
+          <span class="clicker" data-status="1" data-id="{{n.id}}"><i class="fa fa-thumbs-up text-success"></i></span>
+          <span class="clicker" data-status="-1" data-id="{{n.id}}"><i class="fa fa-thumbs-down text-danger"></i></span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div> <!-- /container -->
+
+
+
+{% include 'adminFooter.html' %}
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+
+  	$('#refresh').click(function(){
+    	$(this).addClass('fa-spin');
+      $.get('/admin/news/update', function(){
+        location.reload(true);
+      });
+  	});
+
+  	$('.clicker').click(function(){
+    	var id = $(this).attr('data-id');
+    	var status = $(this).attr('data-status');
+    	var par = $(this).parent();
+      $.get('/admin/news/'+id+'/set/'+status, function(){
+        par.slideUp();
+      });
+  	});
+
+  	$('#termList>li>i').click(function(){
+    	var termID = $(this).attr('data-id');
+      $.get('/admin/news/del/'+termID, function(){
+        location.reload(true);
+      });
+  	});
+
+    $('#addBtn').click(function(){
+      var term = $('#newTerm').val();
+      $.get('/admin/news/add/'+escape(term), function(){
+        location.reload(true);
+      });
+    });
+	});
+})(jQuery);
+
+</script>
+
+{% include 'adminPostFooter.html' %}

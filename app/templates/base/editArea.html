@@ -1,0 +1,13 @@
+<div class="editArea" rel="{{pageInfo.id}}|{{loc}}" id="{{loc}}_edit_box">
+	{% if allowEdit %}
+  <div class="editButtons">
+	  {{buttons.editButton|raw}}
+	  {% if edits[loc]['edit'] %}
+	    {{buttons.finalEditButtons|raw}}
+	  {% endif %}
+  </div>
+	{% endif %}
+	<div class="editor" id="editor_{{loc}}">
+	  {{edits[loc]['text']|raw}}
+	</div>
+</div>

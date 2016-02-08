@@ -1,0 +1,227 @@
+{% include 'adminHeader.html' %}
+
+<div class="container">
+<!--Menu Category Area -->
+  <div class="row">
+    <div class="col-md-5">
+      <h3>Manage Site Pages<i class="fa fa-plus pull-right addRoot" data-id="0"></i></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="scrollable">
+        <ul id="sort0" class="sortable" data-id="{{ item[0].parentMenuID }}">
+        {% for item in menu if item.parentMenuID is defined %}
+          <li id="item_{{item.id}}">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="adminItemHeader" id="{{item.id}}">
+                  <span id="itemName{{item.id}}" class="item-name">{{item.name}}</span>
+                  <i id="curIcon{{item.id}}" class="fa fa-blank pull-right"></i>
+                  {% if item.secure %}{% set icon='lock' %}{% else %}{% set icon='unlock' %}{% endif %}
+                  <i class="fa fa-{{icon}} lock-icon pull-right"></i>
+                  {% if item.menuSide=='R' %}{% set icon='right' %}{% else %}{% set icon='left' %}{% endif %}
+                  <i class="fa fa-arrow-circle-{{icon}} side-icon pull-right"></i>
+                  {% if item.hidden %}{% set icon='thumbs-down' %}{% else %}{% set icon='thumbs-up' %}{% endif %}
+                  <i class="fa fa-{{icon}} stat-icon pull-right"></i>
+                  <i class="handle fa fa-align-justify pull-right"></i>
+                  {% if item.restrictDrop %}
+                  <i class="fa fa-blank pull-right"></i>
+                  {% else %}
+                  <i class="fa fa-plus pull-right add1" data-id="{{item.id}}"></i>
+                  {% endif %}
+                </div>
+                <div class="adminItemSubMenu">
+                  <ul id="sort{{item.id}}" class="sortable bottomSpace">
+                    {% for subi in item.submenu if subi.parentMenuID is defined %}
+                    <li id="item_{{subi.id}}">
+                      <div class="row">
+                        <div class="col-md-11 col-offset-1 pull-right">
+                          <div class="adminItemHeader" id="{{subi.id}}">
+                            <span class="item-name" id="itemName{{subi.id}}">{{subi.name}}</span>
+                            <i id="curIcon{{subi.id}}" class="fa fa-blank pull-right"></i>
+                            {% if subi.secure %}{% set icon='lock' %}{% else %}{% set icon='unlock' %}{% endif %}
+                            <i class="fa fa-{{icon}} lock-icon pull-right"></i>
+                            {% if subi.hidden %}{% set icon='thumbs-down' %}{% else %}{% set icon='thumbs-up' %}{% endif %}
+                            <i class="fa fa-{{icon}} stat-icon pull-right"></i>
+                            <i class="handle fa fa-align-justify pull-right"></i>
+                            <i class="fa fa-plus pull-right add2" data-id="{{subi.id}}"></i>
+                          </div>
+                          <div class="adminItemSubMenu">
+                            <ul id="sort{{subi.id}}" class="sortable">
+                              {% for subx in subi.submenu if subx.parentMenuID is defined %}
+                              <li id="item_{{subx.id}}">
+                                <div class="row">
+                                  <div class="col-md-11 col-offset-1 col-lg  pull-right">
+                                    <div class="adminItemHeader"  id="{{subx.id}}">
+                                      <span class="item-name" id="itemName{{subx.id}}">{{subx.name}}</span>
+                                      <i id="curIcon{{subx.id}}" class="fa fa-blank pull-right"></i>
+                                      {% if subx.secure %}{% set icon='lock' %}{% else %}{% set icon='unlock' %}{% endif %}
+                                      <i class="fa fa-{{icon}} lock-icon pull-right"></i>
+                                      {% if subx.hidden %}{% set icon='thumbs-down' %}{% else %}{% set icon='thumbs-up' %}{% endif %}
+                                      <i class="fa fa-{{icon}} stat-icon pull-right"></i>
+                                      <i class="handle fa fa-align-justify pull-right"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="scrollable" id="showItem">
+        <center><h4>Please select a menu item to edit.</h4></center>
+      </div>
+    </div>
+  </div>
+</div> <!-- /container -->
+
+<div class="hidden">
+
+  <li class="sub_0">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="adminItemHeader">
+          <div class="col-md-9">
+            <input class="item-name1 form-control" type="text" placeholder="New Menu Item Name" />
+          </div>
+          <button class="btn btn-primary addNewItem col-md-3 pull-right">Add Item</button>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="sub_1">
+    <div class="row">
+      <div class="col-md-11 col-offset-1">
+        <div class="adminItemHeader">
+          <div class="col-md-9">
+            <input class="item-name1 form-control" type="text" placeholder="New Menu Item Name" />
+          </div>
+          <button class="btn btn-primary addNewItem col-md-3 pull-right">Add Item</button>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="sub_2">
+    <div class="row">
+      <div class="col-md-11 col-offset-1">
+        <div class="adminItemHeader">
+          <div class="col-md-9">
+            <input class="item-name1 col-md-4 form-control" type="text" placeholder="New Menu Item Name" />
+          </div>
+          <button class="btn btn-primary addNewItem col-md-3 pull-right">Add Item</button>
+        </div>
+      </div>
+    </div>
+  </li>
+
+</div>
+
+
+{% include 'adminFooter.html' %}
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+    var ht = $(window).height() - 140;
+    $('.scrollable').height(ht);
+
+  	$('.fa-plus').click(function(){
+  	  $('.addNew').slideUp().remove();
+  	  var itemID = $(this).attr('data-id');
+    	if ($(this).hasClass('add1')){
+      	$('.sub_1').clone().addClass('addNew').appendTo('#sort'+itemID);
+    	}else if($(this).hasClass('addRoot')){
+      	$('.sub_0').clone().addClass('addNew').appendTo('#sort0');
+    	}else{
+      	$('.sub_2').clone().addClass('addNew').appendTo('#sort'+itemID);
+    	}
+    	$('.addNewItem').click(function(){
+    	  var val = $(this).prev().children().val();
+    	  if (val > ''){
+        	$.post('{{makeURL('admin/sitemenu/create/')}}', {parentMenuID: itemID, name: val}, function(newID){
+          	window.location = "{{makeURL('admin/sitemenu/')}}"+newID;
+        	});
+        }
+    	});
+  	})
+
+  	$( ".sortable" ).sortable({
+  	  handle:'.handle',
+  	  stop:function(event, ui) {
+  	    var menuID = $(this).attr('data-id');
+        $.ajax({
+          type: "POST",
+          url: '{{ makeURL('admin/sitemenu/sort/') ~ menuID }}',
+          data: $(this).sortable("serialize")
+        });
+      }
+    });
+		$( ".sortable" ).disableSelection();
+
+  	$('.addForm').submit(function(e){
+     	e.preventDefault();
+     	var data = $(this).serializeObject();
+     	var self = $(this);
+     	$.post('{{makeURL('admin/sitemenu/create/')}}', data, function(){
+       	location.reload(true);
+     	});
+     	return false;
+  	});
+
+		$.validate({
+  		form : '.addForm'
+    });
+
+		$.validate({
+  		form : '.itemForm'
+    });
+
+    $('.add-icon').click(function(){
+      var self=$(this);
+      self.parent().siblings('.adminItemNew').first().slideToggle();
+    })
+
+    $('.adminItemHeader').click(function(){
+      var self=$(this);
+      var id = self.attr('id');
+      $('.fa-chevron-right').removeClass('fa fa-chevron-right').addClass('fa fa-blank');
+      $('#showItem').load('{{makeURL("admin/sitemenu/load/")}}'+id, function(){
+        $('#curIcon'+id).removeClass('fa fa-blank').addClass('fa fa-chevron-right');
+      });
+    })
+    doIcons();
+
+    {% if active %}
+    $('#{{active}}').click();
+    {% endif %}
+
+	});
+})(jQuery);
+
+function doIcons(){
+  $('.fa-thumbs-up').tooltip({title: 'Active Item'});
+  $('.fa-thumbs-down').tooltip({title: 'Inactive Item'});
+  $('.fa-align-justify').tooltip({title: 'Drag Me to reorder the list.'});
+  $('.fa-list').tooltip({title: 'Manage sub menu'});
+  $('.fa-plus').tooltip({title: 'Add a menu item'});
+}
+</script>
+
+{% include 'adminPostFooter.html' %}

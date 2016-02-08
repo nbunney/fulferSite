@@ -1,0 +1,162 @@
+<form class="form-horizontal" id="jobForm" data-val="{{job.id}}">
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputName">Name</label>
+    <div class="col-md-9">
+      <input class="form-control" type="text" id="inputName" name="name" value="{{ job.name|raw }}" placeholder="Name" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">Active</label>
+    <div class="col-md-9">
+      <input type="checkbox" id="active" {% if job.active %}checked{% endif %}>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">Date Posted</label>
+    <div class="col-md-9">
+      <input type="date" id="inputDatePosted" class="form-control" name="datePosted" value="{{job.datePosted}}" placeholder="Date" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputCityState">City, State</label>
+    <div class="col-md-9">
+      <input class="form-control" type="text" name="cityState" value="{{ job.cityState|raw }}" id="inputCityState" placeholder="City, St" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputLocation">Location</label>
+    <div class="col-md-9">
+      <input class="form-control" type="text" name="location" value="{{ job.location|raw }}" id="inputLocation" placeholder="Location" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">Job Type</label>
+    <div class="col-md-9">
+      <select class="form-control" name="jtID">
+      {% for l in types %}
+        {% if job.jobTypeID == l.id %}
+          {% set sel = ' selected="selected" ' %}
+        {% else %}
+          {% set sel = '' %}
+        {% endif %}
+        <option {{sel}} value="{{l.id}}">{{l.name}}</option>
+      {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputOpen">Openings</label>
+    <div class="col-md-9">
+    {% if new %}{% set open = 1 %}{% else %}{% set open = job.openings %}{% endif %}
+      <input class="form-control col-md-1" type="number" name="openings" value="{{ open }}" id="inputOpen" placeholder="Openings" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputDesc">Description</label>
+    <div class="col-md-9">
+      <textarea name="description" class="form-control" id="inputDesc" placeholder="Description" required>{{job.description|raw}}</textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputReq">Requirements</label>
+    <div class="col-md-9">
+      <textarea name="requirements" class="form-control" id="inputReq" placeholder="Requirements" required>{{job.requirements|raw}}</textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">&nbsp;</label>
+    <div class="col-md-4">
+      <button type="submit" class="btn btn-primary">Update Position</button>
+    </div>
+    <div class="col-md-5">
+      <button type="button" data-id="{{job.id}}" class="btn btn-danger pull-right del-job">Delete Position</button>
+    </div>
+  </div>
+</form>
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+
+/*
+    var editors = CKEDITOR.instances;
+    $.each(editors, function(i, e){
+      e.destroy(true)
+    })
+
+		$('#inputDesc').ckeditor({
+		  contentsCss : [window.subdir+'/css/bootstrap.min.css', window.subdir+'/css/site.css', window.subdir+'/css/editor.css'],
+		  bodyId : 'contentRight',
+			enterMode : CKEDITOR.ENTER_BR,
+			shiftEnterMode: CKEDITOR.ENTER_P,
+			height: 300,
+      filebrowserBrowseUrl : window.subdir+'/tools/ckfinder/ckfinder.html',
+      filebrowserImageBrowseUrl : window.subdir+'/tools/ckfinder/ckfinder.html?Type=Images',
+      filebrowserFlashBrowseUrl : window.subdir+'/tools/ckfinder/ckfinder.html?Type=Flash',
+      filebrowserUploadUrl : window.subdir+'/tools/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+      filebrowserImageUploadUrl : window.subdir+'/tools/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+      filebrowserFlashUploadUrl : window.subdir+'/tools/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    }, function(){
+	    //$('.cke_editor').css('width', wt);
+    });
+
+		$('#inputReq').ckeditor({
+		  contentsCss : [window.subdir+'/css/bootstrap.min.css', window.subdir+'/css/site.css', window.subdir+'/css/editor.css'],
+		  bodyId : 'contentRight',
+			enterMode : CKEDITOR.ENTER_BR,
+			shiftEnterMode: CKEDITOR.ENTER_P,
+			height: 300,
+      filebrowserBrowseUrl : window.subdir+'/tools/ckfinder/ckfinder.html',
+      filebrowserImageBrowseUrl : window.subdir+'/tools/ckfinder/ckfinder.html?Type=Images',
+      filebrowserFlashBrowseUrl : window.subdir+'/tools/ckfinder/ckfinder.html?Type=Flash',
+      filebrowserUploadUrl : window.subdir+'/tools/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+      filebrowserImageUploadUrl : window.subdir+'/tools/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+      filebrowserFlashUploadUrl : window.subdir+'/tools/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    }, function(){
+	    //$('.cke_editor').css('width', wt);
+    });
+*/
+
+
+
+    $('.del-job').click(function(){
+      if (confirm('Are you sure you wish to completely remove this position?')){
+        $.ajax({
+          type: "DELETE",
+          url: "{{ makeURL('admin/jobs/'~job.id)}}",
+          success: function(ret){
+            location.reload(true);
+          }
+        });
+      }
+    });
+
+    $("#jobForm").validate({
+      submitHandler: function(form) {
+      	var data = $("#jobForm").serializeObject();
+        $.ajax({
+          type: "PUT",
+          data: data,
+          url: "{{ makeURL('admin/jobs/'~job.id)}}",
+          success: function(ret){
+
+          }
+        });
+      }
+    });
+  	$('#jobForm').submit(function(e){
+     	e.preventDefault();
+  	});
+
+    $('#active').onoff();
+    $('#active').change(function(){
+      var id = '{{item.id}}';
+      var active = ($(this).prop('checked')) ? 1 : 0;
+      $.get('{{makeURL("admin/jobs/"~job.id~"/active/")}}'+active, function(){
+      });
+    });
+
+
+	});
+})(jQuery);
+</script>

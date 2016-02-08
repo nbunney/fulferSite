@@ -1,0 +1,4 @@
+.editButton, .approveButton, .cancelButton{cursor: pointer; z-index:102;}
+.editor{float: left;}
+.editButtons{float: left; width: 100%; margin-top: -14px;}
+.editor{width: 100%;}

@@ -1,0 +1,35 @@
+<DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
+        <link href="/css/less.css" rel="stylesheet">
+        <link href="/css/main.css" rel="stylesheet">
+        <title>Richard Fulfer Estate & Probate Attorney in Modesto, CA</title>
+    </head>
+    <body>
+        <!-- navigation menu -->
+        <div class="container-fluid">
+            <nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarContent">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbarContent">
+                        <ul class="nav navbar-nav navbar-right">
+                          {% for m in menu %}
+                            <li><a href="/{{m.route}}">{{m.name}}</a></li>
+                          {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- beginning of body -->
+        <div class="body">

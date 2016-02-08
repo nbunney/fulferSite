@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /resumes/
+Disallow: /media/
+Disallow: /filemanager/
+Disallow: /fonts/
+Disallow: /templates/
+Disallow: /js/
+Disallow: /css/
+Disallow: /img/

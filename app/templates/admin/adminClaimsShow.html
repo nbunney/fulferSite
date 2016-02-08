@@ -1,0 +1,253 @@
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal itemForm" data-val="{{claim.id}}">
+      <div class="form-group">
+        <label class="control-label col-md-2">Company Name</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.companyName}}" class="form-control">
+        </div>
+        <label class="control-label col-md-2">Claim ID</label>
+        <div class="col-md-2">
+          <input disabled type="text" value="{{claim.id}}" class="form-control">
+        </div>
+        <div class="col-md-2">
+          <a target="_blank" href="{{makeURL('admin/claims/'~claim.id~'/print')}}" class="btn btn-xs btn-primary">Print</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Product</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.product}}"  class="form-control">
+        </div>
+        <label class="control-label col-md-2">Product Code</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.productCode}}"  class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Pounds</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.totalLbs}}"  class="form-control">
+        </div>
+        <label class="control-label col-md-2">Claim Status</label>
+        <div class="col-md-4">
+          {% for s in status %}
+          <label class="radio-inline">
+            <input type="radio" name="status" value="{{s.id}}" {% if s.id == claim.status %}checked{% endif %}> {{s.name}}
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Claim Date</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.claimDate}}"  class="form-control">
+        </div>
+        <label class="control-label col-md-2">Cust Claim Number</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.custClaimNo}}" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Contact</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.contactPerson}}"  class="form-control">
+        </div>
+        <label class="control-label col-md-2">Phone</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.contactNumber}}" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">BOL Numbers</label>
+        <div class="col-md-10">
+          <input disabled type="text" value="{{claim.bolNumbers}}"  class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">CLot Numbers</label>
+        <div class="col-md-10">
+          <input disabled type="text" value="{{claim.cLotNumbers}}"  class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Damage Description</label>
+        <div class="col-md-10">
+          <input disabled type="text" value="{{claim.description}}"  class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Product Cost</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.productCost}}"  class="form-control">
+        </div>
+        <label class="control-label col-md-2">Total Product Cost</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.totalProductCost}}"  class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Freight Charges</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.freightCharges}}"  class="form-control">
+        </div>
+        <label class="control-label col-md-2">Disposal Cost</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.disposalCost}}"  class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Bin Charges</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.binCharges}}"  class="form-control">
+        </div>
+        <label class="control-label col-md-2">Other Charges</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.otherCharges}}"  class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Total Claim</label>
+        <div class="col-md-4">
+          <input disabled type="text" value="{{claim.totalClaim}}"  class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Notes</label>
+        <div class="col-md-8">
+          <textarea name="notes" id="notes-{{claim.id}}" class="form-control">{{claim.notes}}</textarea>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary">Save Notes</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="name78">Images</label>
+        <div class="col-md-9">
+          {% for i in claim.images %}
+          <a href="{{makeURL('img/claimform/'~i.imageName)}}" class="fancybox"><img src="{{makeURL('img/claimform/'~i.imageName)}}" class="claimImage"></a>
+          {% endfor %}
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+
+    $('.fancybox').fancybox();
+
+
+    $('input[name="status"]').change(function(){
+      $.ajax({
+        type: "PUT",
+        url: '{{makeURL("admin/claims/"~claim.id~"/status")}}',
+        data: {'status': $(this).val()}
+      });
+    });
+
+    $('#notes-{{claim.id}}').blur(function(){
+      $.ajax({
+        type: "PUT",
+        url: '{{makeURL("admin/claims/"~claim.id~"/notes")}}',
+        data: {'notes': $(this).val()}
+      });
+    });
+
+    $.validate({
+  		form : '.itemForm'
+    });
+
+    $('#delPageImage').click(function(){
+      $.get('{{makeURL("admin/menucats/delPageImage/"~id)}}', function(){
+        $('#pageImage>img').slideUp();
+        $('#delPageImage').slideUp();
+      });
+    });
+
+    $('#imageUploader').fileupload({
+      autoUpload: true,
+      //dataType: 'text/html',
+      uploadTemplateId: null,
+      downloadTemplateId: null,
+      done: function (e, data) {
+        console.log(data);
+        $.each(data.result.files, function (index, file) {
+          var file = file;
+          $.post('{{makeURL("admin/menucats/setPic/"~claim.id)}}', {file: file.name}, function(){
+            $('#imageFile').html('<img class="img-polaroid" src="{{makeURL('img/icon/')}}'+file.name+'">');
+          });
+        });
+      },
+      progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        var pct = progress+'%';
+        $('#imageProgress').css('width', pct);
+      }
+    });
+
+    $('#onMenu').onoff();
+    $('#onMenu').change(function(){
+      var id = '{{claim.id}}';
+      var status = ($(this).prop('checked')) ? 1 : 0;
+      var icon=$('#'+id).children('.eye-icon').first();
+      $.get('{{makeURL('admin/menucats/setOnMenu/')}}'+id+'/'+status, function(){
+    	  switch(status){
+        	case 1:
+        	  var newIcon = 'fa-eye';
+        	  break;
+        	case 0:
+        	  var newIcon = 'fa-eye-slash';
+        	  break;
+      	}
+    	  icon.removeClass('fa-eye').removeClass('fa-eye-slash').addClass(newIcon);
+      });
+    });
+
+    $('#defaultOpen').onoff();
+    $('#defaultOpen').change(function(){
+      var id = '{{claim.id}}';
+      var status = ($(this).prop('checked')) ? 1 : 0;
+      var icon=$('#'+id).children('.open-icon').first();
+      $.get("{{makeURL('admin/menucats/setDOpen/')}}"+id+'/'+status, function(){
+    	  switch(status){
+        	case 1:
+        	  var newIcon = 'fa-folder-open-o';
+        	  break;
+        	case 0:
+        	  var newIcon = 'fa-folder-o';
+        	  break;
+      	}
+    	  icon.removeClass('fa-folder-o').removeClass('fa-folder-open-o').addClass(newIcon);
+      });
+    });
+
+  	$('.itemForm').submit(function(e){
+     	e.preventDefault();
+      $('#updateBtn').addClass('disabled').html('<i class="fa fa-spin fa-spinner"></i> Updating...');
+      $('#delBtn').addClass('disabled');
+    	var id = $(this).attr('data-val');
+    	var data = $(this).serializeObject();
+    	var self = $(this);
+    	$.ajax({
+        method: "PUT",
+        url: "{{makeURL('admin/menucats/')}}"+id,
+        data: data
+      }).done(function() {
+    	  var name = $('#name'+id).val();
+      	$('#itemName'+id).html(name);
+        $('#updateBtn').removeClass('disabled').html('<i class="fa fa-upload"></i> Update Settings');
+        $('#delBtn').removeClass('disabled');
+        $('#updateStatus').text(' Updated!').addClass('text-success');
+        setTimeout(function(){
+          $('#updateStatus').fadeOut("slow");
+        }, 1500);
+    	});
+     	return false;
+  	});
+
+	});
+})(jQuery);
+</script>

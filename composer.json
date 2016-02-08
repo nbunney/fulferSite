@@ -1,0 +1,11 @@
+{
+  "require": {
+    "slim/slim": "~2",
+    "slim/views": "0.1.*",
+    "twig/twig": "1.16.*@dev",
+    "firebase/php-jwt": "~1.0",
+    "entomb/slim-json-api": "dev-master"
+  },
+  "autoload": {
+  }
+}

@@ -1,0 +1,257 @@
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal itemForm" data-val="{{item.id}}">
+      <div class="form-group">
+        <label class="control-label col-md-3">Hidden</label>
+        <div class="col-md-9">
+          <input type="checkbox" id="hidden" {% if item.hidden %}checked{% endif %}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3">Member Only</label>
+        <div class="col-md-9">
+          <input type="checkbox" id="secure" {% if item.secure %}checked{% endif %}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3">Right Menu</label>
+        <div class="col-md-9">
+          <input type="checkbox" id="menuSide" {% if item.menuSide=='R' %}checked{% endif %}>
+        </div>
+      </div>
+<!--
+      <div class="form-group">
+        <label class="control-label col-md-3">Show H1</label>
+        <div class="col-md-9">
+          <input type="checkbox" id="showH1" {% if item.showH1 %}checked{% endif %}>
+        </div>
+      </div>
+-->
+      <div class="form-group">
+        <label class="control-label col-md-3" for="name{{item.id}}">Name</label>
+        <div class="col-md-9">
+          <input type="text" id="name{{item.id}}" name="name" value="{{item.name}}" placeholder="Name" class="form-control" data-validation="required"><br />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="route{{item.id}}">URL Slug <small>(Only letters, numbers and dashes.  First character must be a letter, last character may not be a dash.)</small></label>
+        <div class="col-md-9">
+          <input type="text" id="route{{item.id}}" name="route" value="{{item.route }}" placeholder="URL Slug" class="form-control" {% if item.route|lower=='home' or item.route|lower=='blog' or item.route|lower=='thanks' %}disabled='disabled'{% endif %} class="form-control" data-validation="required"><br />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="h1Tag{{item.id}}">H1 Tag</label>
+        <div class="col-md-9">
+          <input type="text" id="h1Tag{{item.id}}" name="h1Tag" value="{{item.h1Tag }}" placeholder="H1 Tag" class="form-control" data-validation="required"><br />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="titleTag{{item.id}}">Title Tag</label>
+        <div class="col-md-9">
+          <input type="text" id="titleTag{{item.id}}" name="titleTag" value="{{item.titleTag }}" placeholder="Page Title" class="form-control" data-validation="required"><br />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="description{{item.id}}">Description</label>
+        <div class="col-md-9">
+          <textarea id="description{{item.id}}" name="description" placeholder="Page description" class="form-control" data-validation="required">{{item.description }}</textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="templateID{{item.id}}">Template</label>
+        <div class="col-md-9">
+          <select id="templateID{{item.id}}" name="templateID" class="form-control">
+            <option value="0">No Template</option>
+          {% for t in templates %}
+            {% if t.id == item.templateID %}
+              {% set sel = 'selected="selected"' %}
+            {% else %}
+              {% set sel = '' %}
+            {% endif %}
+            <option {{sel}} value="{{ t.id }}">{{ t.name }}</option>
+          {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3">&nbsp;</label>
+        <div class="col-md-9">
+          <button type="submit" class="btn btn-primary" id="updateBtn"><i class="fa fa-upload"></i> Update Settings</button>
+          <span id="updateStatus"></span>
+          <button type="button" class="btn btn-danger pull-right del-item" id="delBtn" data-id="{{item.id}}"><i class="fa fa-trash-o"></i> Delete Menu Item</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="name78">Image</label>
+        <div class="controls pageImage">
+          <div class="row">
+       			<div class="col-md-4">
+       			  <input id="imageUploader" type="file" name="files[]" data-url="{{makeURL('upload/page')}}">
+       			  <div class="progress">
+                <div id="imageProgress" class="progress-bar" role="progressbar" style="width: 0%">
+                </div>
+              </div>
+    				</div>
+    				<div class="col-md-4" id="imageFile">
+    				{% if item.image > '' %}
+            <img  class="img-polaroid" style="width:90%;" src="{{makeURL('img/page/'~item.image)}}">
+    				{% else %}
+    				No File Uploaded
+    				{% endif %}
+    				</div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+
+    $.validate({
+  		form : '.itemForm'
+    });
+
+    $('#delPageImage').click(function(){
+      $.get('{{makeURL("admin/sitemenu/delPageImage/"~id)}}', function(){
+        $('#pageImage>img').slideUp();
+        $('#delPageImage').slideUp();
+      });
+    });
+
+    $('#imageUploader').fileupload({
+      autoUpload: true,
+      //dataType: 'text/html',
+      uploadTemplateId: null,
+      downloadTemplateId: null,
+      done: function (e, data) {
+        console.log(data);
+        $.each(data.result.files, function (index, file) {
+          var file = file;
+          $.post('{{makeURL("admin/sitemenu/setPic/"~item.id)}}', {file: file.name}, function(){
+            $('#imageFile').html('<img class="img-polaroid" style="width:90%;" src="{{makeURL('img/page/')}}'+file.name+'">');
+          });
+        });
+      },
+      progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        var pct = progress+'%';
+        $('#imageProgress').css('width', pct);
+      }
+    });
+
+    $('#showH1').onoff();
+    $('#showH1').change(function(){
+      var id = '{{item.id}}';
+      var showH1 = ($(this).prop('checked')) ? 1 : 0;
+      $.get("{{makeURL('admin/sitemenu/setShow/')}}"+id+'/'+showH1);
+    });
+
+    $('#hidden').onoff();
+    $('#hidden').change(function(){
+      var id = '{{item.id}}';
+      var hidden = ($(this).prop('checked')) ? 1 : 0;
+      console.info('hidden', hidden);
+      var icon=$('#'+id).children('.stat-icon').first();
+      $.get('{{makeURL('admin/sitemenu/setHidden/')}}'+id+'/'+hidden, function(){
+        console.info('hidden', hidden);
+    	  switch(hidden){
+        	case 1:
+        	  var newIcon = 'fa-thumbs-down';
+        	  break;
+        	case 0:
+        	  var newIcon = 'fa-thumbs-up';
+        	  break;
+      	}
+      	console.info('newIcon', newIcon);
+    	  icon.removeClass('fa-thumbs-up').removeClass('fa-thumbs-down').addClass(newIcon);
+      	doIcons();
+      });
+    });
+
+    $('#secure').onoff();
+    $('#secure').change(function(){
+      var id = '{{item.id}}';
+      var secure = ($(this).prop('checked')) ? 1 : 0;
+      var icon=$('#'+id).children('.lock-icon').first();
+      $.get('{{makeURL('admin/sitemenu/setSecure/')}}'+id+'/'+secure, function(){
+    	  switch(secure){
+        	case 1:
+        	  var newIcon = 'fa-lock';
+        	  break;
+        	case 0:
+        	  var newIcon = 'fa-unlock';
+        	  break;
+      	}
+    	  icon.removeClass('fa-lock').removeClass('fa-unlock').addClass(newIcon);
+      	doIcons();
+      });
+    });
+
+    $('#menuSide').onoff();
+    $('#menuSide').change(function(){
+      var id = '{{item.id}}';
+      var side = ($(this).prop('checked')) ? 'R' : 'L';
+      var icon=$('#'+id).children('.side-icon').first();
+      $.get('{{makeURL('admin/sitemenu/setMenuSide/')}}'+id+'/'+side, function(){
+    	  switch(side){
+        	case 'R':
+        	  var newIcon = 'fa-arrow-circle-right';
+        	  break;
+        	case 'L':
+        	  var newIcon = 'fa-arrow-circle-left';
+        	  break;
+      	}
+    	  icon.removeClass('fa-arrow-circle-left').removeClass('fa-arrow-circle-right').addClass(newIcon);
+      	doIcons();
+      });
+    });
+
+  	$('.itemForm').submit(function(e){
+     	e.preventDefault();
+      $('#updateBtn').addClass('disabled').html('<i class="fa fa-spin fa-spinner"></i> Updating...');
+      $('#delBtn').addClass('disabled');
+    	var id = $(this).attr('data-val');
+    	var data = $(this).serializeObject();
+    	var self = $(this);
+    	$.ajax({
+        method: "PUT",
+        url: "{{makeURL('admin/sitemenu/')}}"+id,
+        data: data
+      }).done(function() {
+    	  var name = $('#name'+id).val();
+      	$('#itemName'+id).html(name);
+        $('#updateBtn').removeClass('disabled').html('<i class="fa fa-upload"></i> Update Settings');
+        $('#delBtn').removeClass('disabled');
+        $('#updateStatus').text(' Updated!').addClass('text-success');
+        setTimeout(function(){
+          $('#updateStatus').fadeOut("slow");
+        }, 1500);
+    	});
+     	return false;
+  	});
+
+  	$('.del-item').click(function(){
+      $('#updateBtn').addClass('disabled');
+      $('#delBtn').addClass('disabled');
+  	  if (confirm('Are you sure you want to delete this item?')){
+      	var itemID = $(this).attr('data-id');
+      	$.ajax({
+          method: "DELETE",
+          url: "{{makeURL('admin/sitemenu/')}}"+itemID
+        }).done(function( msg ) {
+        	$('#showItem').html('');
+        	$('#item_'+itemID).slideUp().remove();
+      	});
+      }else{
+        $('#updateBtn').removeClass('disabled');
+        $('#delBtn').removeClass('disabled');
+      }
+  	});
+
+
+	});
+})(jQuery);
+</script>

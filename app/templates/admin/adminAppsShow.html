@@ -1,0 +1,68 @@
+<table class="table table-striped tabel-hover table-condensed">
+  <tr>
+    <th class="nameCol">Name</th>
+    <th class="dateCol">Date</th>
+    <th class="statCol">Status -
+      <label for="c0" class="checkbox-inline" title="New">N<input type="checkbox" id="c0" data-id="0" class="selstatus" checked="checked"></label>
+      <label for="c3" class="checkbox-inline" title="Short List">S<input type="checkbox" id="c3" data-id="3" class="selstatus" checked="checked"></label>
+      <label for="c2" class="checkbox-inline" title="Considering">C<input type="checkbox" id="c2" data-id="2" class="selstatus" checked="checked"></label>
+      <label for="c1" class="checkbox-inline" title="Viewed">V<input type="checkbox" id="c1" data-id="1" class="selstatus"></label>
+      <label for="c4" class="checkbox-inline" title="Rejected">R<input type="checkbox" id="c4" data-id="4" class="selstatus"></label>
+    </th>
+    <th class="appCol">App</th>
+    <th>Res</th>
+    <th>Oth</th>
+  </tr>
+{% for item in apps %}
+  <tr class="typer type{{item.stat}}" {% if item.stat==4 or item.stat==1 %}style="display:none;"{% endif %} >
+    <td><a href="mailto:{{item.email}}" target="_blank">{{item.firstname}} {{item.lastname}}</a></td>
+    <td>{{item.appDate[0:10]}}</td>
+    <td>
+      <select class="status" data-id='{{item.id}}'>
+        <option value="0" {% if item.status==0 %}selected="selected"{% endif %}>New</option>
+        <option value="3" {% if item.status==3 %}selected="selected"{% endif %}>Short List</option>
+        <option value="2" {% if item.status==2 %}selected="selected"{% endif %}>Considering</option>
+        <option value="1" {% if item.status==1 %}selected="selected"{% endif %}>Viewed</option>
+        <option value="-1" {% if item.status==-1 %}selected="selected"{% endif %}>Rejected</option>
+      </select>
+    </td>
+    <td><a target="_blank" href="{{makeURL('admin/applicants/'~item.id~'/generate')}}">App</a></td>
+    <td><a target="_blank" href="{{makeURL('resumes/'~item.resumefile)}}">Res</a></td>
+    <td>{% if item.otherfile > '' %}<a target="_blank" href="{{makeURL('resumes/'~item.otherfile)}}">Oth</a>{% endif %}</td>
+  </tr>
+{% endfor %}
+</table>
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+  	$('.status').change(function(){
+    	id = $(this).attr('data-id');
+    	var val = $(this).val();
+    	var self = $(this);
+
+      $.ajax({
+        type: "PUT",
+        url: '{{makeURL("admin/applicants/")}}'+id+'/status/'+val,
+        success: function(ret){
+        	self.parent().parent().removeClass('type0 type1 type2 type3 type4');
+          self.parent().parent().addClass('type'+val);
+        }
+      });
+
+  	});
+
+
+
+  	$('.selstatus').click(function(){
+    	for(var x=0;x<=4;x++){
+      	if ($('#c'+x).is(':checked')){
+        	$('.typer.type'+x).show();
+      	}else{
+        	$('.typer.type'+x).hide();
+      	}
+    	}
+  	});
+	});
+})(jQuery);
+</script>

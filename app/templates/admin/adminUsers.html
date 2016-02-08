@@ -1,0 +1,135 @@
+{% include 'adminHeader.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Manage Users</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5">
+      <ul class="sortable">
+        <li>
+          <div class="adminItemSearch" id="New">
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="search">Find User: </label>
+                <input type="text" class="form-control input-sm" id="search">
+              </div>
+              <button id="clearSearch" type="button" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
+            </form>
+          </div>
+        </li>
+        <li>
+          <div class="adminItemHeader adminItemNewHeader" id="New">
+            <span id="itemName" class="item-name">Add New Person</span>
+            <i class="flipper fa fa-blank pull-right" id="curIconNew"></i>
+            <i class="fa fa-plus pull-right" data-original-title=""></i>
+          </div>
+        </li>
+      </ul>
+
+      <div class="scroller">
+        <ul class="sortable">
+        {% for item in users %}
+          <li class="nameItem" id="item_{{item.id}}" data-text="{{item.lname ~ ', ' ~ item.fname}}">
+            <div class="adminItemHeader" id="{{item.id}}">
+              <span id="itemName{{item.id}}" class="item-name">{{item.lname ~ ', ' ~ item.fname}}</span>
+              <i id="curIcon{{item.id}}" class="fa fa-blank pull-right"></i>
+              {% if item.status %}
+              <i class="fa fa-thumbs-up stat-icon pull-right"></i>
+              {% else %}
+              <i class="fa fa-thumbs-down stat-icon pull-right"></i>
+              {% endif %}
+
+              {% if item.role == 4 %}
+              <i id="typeIcon{{item.id}}" class="fa fa-fire utype-icon pull-right"></i>
+              {% endif %}
+
+              {% if item.role == 3 %}
+              <i id="typeIcon{{item.id}}" class="fa fa-leaf utype-icon pull-right"></i>
+              {% endif %}
+
+              {% if item.role == 2 %}
+              <i id="typeIcon{{item.id}}" class="fa fa-pencil utype-icon pull-right"></i>
+              {% endif %}
+
+              {% if item.role == 1 %}
+              <i id="typeIcon{{item.id}}" class="fa fa-user utype-icon pull-right"></i>
+              {% endif %}
+
+            </div>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-7" id="showItem">
+      <center><h4>Please select a person to edit.</h4></center>
+    </div>
+  </div>
+</div> <!-- /container -->
+
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+{% include 'adminFooter.html' %}
+
+<script language="javascript" type="text/javascript">
+
+  (function($) {
+  	$(function() {
+
+      $('#clearSearch').click(function(){
+        $('#search').val('');
+        $('.nameItem').show();
+      });
+
+      $('#search').keyup(function(){
+        var s = $(this).val().toLowerCase();
+        console.info('s', s, s.length)
+        if (s.length < 3){
+          $('.nameItem').show();
+        }else{
+          $('.nameItem').each(function(i){
+            var e = $(this).attr('data-text').toLowerCase();
+            console.info('test', e, s);
+            if (e.indexOf(s) > -1){
+              $(this).show();
+            }else{
+              $(this).hide();
+            }
+          });
+        }
+      });
+
+      $('.adminItemHeader').click(function(){
+        var self=$(this);
+        var id = self.attr('id');
+        $('.fa-chevron-right').removeClass('fa fa-chevron-right').addClass('fa fa-blank');
+        $('#showItem').load('{{makeURL("admin/users/load/")}}'+id, function(){
+          $('#curIcon'+id).removeClass('fa fa-blank').addClass('fa fa-chevron-right');
+        });
+      });
+
+      doIcons();
+
+      {% if active %}
+      $('#{{active}}').click();
+      {% endif %}
+
+    	{% if selMin %}
+    	$('#{{selMin}}').click();
+    	{% endif %}
+  	});
+  })(jQuery);
+
+  function doIcons(){
+    $('.fa-thumbs-up').tooltip({title: 'Active Item'});
+    $('.fa-thumbs-down').tooltip({title: 'Inactive Item'});
+  }
+
+</script>
+
+{% include 'adminPostFooter.html' %}

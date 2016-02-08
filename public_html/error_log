@@ -1,0 +1,56 @@
+[18-May-2015 15:09:05 America/Los_Angeles] PHP Fatal error:  Uncaught exception 'Twig_Error_Loader' with message 'The "./templates" directory does not exist.' in /home/designmodesto/ingomar/vendor/twig/twig/lib/Twig/Loader/Filesystem.php:93
+Stack trace:
+#0 /home/designmodesto/ingomar/vendor/twig/twig/lib/Twig/Loader/Filesystem.php(75): Twig_Loader_Filesystem->addPath('./templates', '__main__')
+#1 /home/designmodesto/ingomar/vendor/twig/twig/lib/Twig/Loader/Filesystem.php(33): Twig_Loader_Filesystem->setPaths(Array)
+#2 /home/designmodesto/ingomar/vendor/slim/views/Twig.php(121): Twig_Loader_Filesystem->__construct(Array)
+#3 /home/designmodesto/ingomar/app/start.php(20): Slim\Views\Twig->getInstance()
+#4 /home/designmodesto/ingomar/public_html/index.php(6): require_once('/home/designmod...')
+#5 {main}
+  thrown in /home/designmodesto/ingomar/vendor/twig/twig/lib/Twig/Loader/Filesystem.php on line 93
+[18-May-2015 15:09:05 America/Los_Angeles] PHP Fatal error:  Uncaught exception 'Twig_Error_Loader' with message 'The "./templates" directory does not exist.' in /home/designmodesto/ingomar/vendor/twig/twig/lib/Twig/Loader/Filesystem.php:93
+Stack trace:
+#0 /home/designmodesto/ingomar/vendor/twig/twig/lib/Twig/Loader/Filesystem.php(75): Twig_Loader_Filesystem->addPath('./templates', '__main__')
+#1 /home/designmodesto/ingomar/vendor/twig/twig/lib/Twig/Loader/Filesystem.php(33): Twig_Loader_Filesystem->setPaths(Array)
+#2 /home/designmodesto/ingomar/vendor/slim/views/Twig.php(121): Twig_Loader_Filesystem->__construct(Array)
+#3 /home/designmodesto/ingomar/app/start.php(20): Slim\Views\Twig->getInstance()
+#4 /home/designmodesto/ingomar/public_html/index.php(6): require_once('/home/designmod...')
+#5 {main}
+  thrown in /home/designmodesto/ingomar/vendor/twig/twig/lib/Twig/Loader/Filesystem.php on line 93
+[19-May-2015 15:50:49 America/Los_Angeles] PHP Warning:  Uncaught exception 'ErrorException' with message 'require(/Volumes/Disk2/Users/nathan/Sites/Underground Kitchen/public_html/../app/helpers/UploadHandler.php): failed to open stream: No such file or directory' in /home/designmodesto/ingomar/app/routes/admin.php:150
+Stack trace:
+#0 /home/designmodesto/ingomar/app/routes/admin.php(150): Slim\Slim::handleErrors(2, 'require(/Volume...', '/home/designmod...', 150, Array)
+#1 /home/designmodesto/ingomar/app/routes/admin.php(150): Slim\Slim->{closure}()
+#2 [internal function]: {closure}('page')
+#3 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Route.php(468): call_user_func_array(Object(Closure), Array)
+#4 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Slim.php(1357): Slim\Route->dispatch()
+#5 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middleware/Flash.php(85): Slim\Slim->call()
+#6 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middleware/MethodOverride.php(92): Slim\Middleware\Flash->call()
+#7 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middlewa in /home/designmodesto/ingomar/app/routes/admin.php on line 150
+[19-May-2015 15:50:49 America/Los_Angeles] PHP Fatal error:  {closure}(): Failed opening required '/Volumes/Disk2/Users/nathan/Sites/Underground Kitchen/public_html/../app/helpers/UploadHandler.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/designmodesto/ingomar/app/routes/admin.php on line 150
+[22-May-2015 14:33:29 America/Los_Angeles] PHP Warning:  Uncaught exception 'ErrorException' with message 'require(/Volumes/Disk2/Users/nathan/Sites/Underground Kitchen/public_html/../app/helpers/UploadHandler.php): failed to open stream: No such file or directory' in /home/designmodesto/ingomar/app/routes/admin.php:156
+Stack trace:
+#0 /home/designmodesto/ingomar/app/routes/admin.php(156): Slim\Slim::handleErrors(2, 'require(/Volume...', '/home/designmod...', 156, Array)
+#1 /home/designmodesto/ingomar/app/routes/admin.php(156): Slim\Slim->{closure}()
+#2 [internal function]: {closure}('page')
+#3 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Route.php(468): call_user_func_array(Object(Closure), Array)
+#4 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Slim.php(1357): Slim\Route->dispatch()
+#5 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middleware/Flash.php(85): Slim\Slim->call()
+#6 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middleware/MethodOverride.php(92): Slim\Middleware\Flash->call()
+#7 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middlewa in /home/designmodesto/ingomar/app/routes/admin.php on line 156
+[22-May-2015 14:33:29 America/Los_Angeles] PHP Fatal error:  {closure}(): Failed opening required '/Volumes/Disk2/Users/nathan/Sites/Underground Kitchen/public_html/../app/helpers/UploadHandler.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/designmodesto/ingomar/app/routes/admin.php on line 156
+[22-May-2015 14:34:00 America/Los_Angeles] PHP Warning:  Uncaught exception 'ErrorException' with message 'require(/Volumes/Disk2/Users/nathan/Sites/Underground Kitchen/public_html/../app/helpers/UploadHandler.php): failed to open stream: No such file or directory' in /home/designmodesto/ingomar/app/routes/admin.php:156
+Stack trace:
+#0 /home/designmodesto/ingomar/app/routes/admin.php(156): Slim\Slim::handleErrors(2, 'require(/Volume...', '/home/designmod...', 156, Array)
+#1 /home/designmodesto/ingomar/app/routes/admin.php(156): Slim\Slim->{closure}()
+#2 [internal function]: {closure}('page')
+#3 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Route.php(468): call_user_func_array(Object(Closure), Array)
+#4 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Slim.php(1357): Slim\Route->dispatch()
+#5 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middleware/Flash.php(85): Slim\Slim->call()
+#6 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middleware/MethodOverride.php(92): Slim\Middleware\Flash->call()
+#7 /home/designmodesto/ingomar/vendor/slim/slim/Slim/Middlewa in /home/designmodesto/ingomar/app/routes/admin.php on line 156
+[22-May-2015 14:34:00 America/Los_Angeles] PHP Fatal error:  {closure}(): Failed opening required '/Volumes/Disk2/Users/nathan/Sites/Underground Kitchen/public_html/../app/helpers/UploadHandler.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/designmodesto/ingomar/app/routes/admin.php on line 156
+[10-Nov-2015 11:52:19 America/Los_Angeles] PHP Warning:  require(/home/designmodesto/ingomar/app/classes/class.claimform.php): failed to open stream: No such file or directory in /home/designmodesto/ingomar/app/start.php on line 33
+[10-Nov-2015 11:52:19 America/Los_Angeles] PHP Fatal error:  require(): Failed opening required '/home/designmodesto/ingomar/app/classes/class.claimform.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/designmodesto/ingomar/app/start.php on line 33
+[10-Nov-2015 11:52:19 America/Los_Angeles] PHP Warning:  require(/home/designmodesto/ingomar/app/classes/class.claimform.php): failed to open stream: No such file or directory in /home/designmodesto/ingomar/app/start.php on line 33
+[10-Nov-2015 11:52:19 America/Los_Angeles] PHP Fatal error:  require(): Failed opening required '/home/designmodesto/ingomar/app/classes/class.claimform.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/designmodesto/ingomar/app/start.php on line 33
+[13-Jan-2016 07:52:41 America/Los_Angeles] PHP Fatal error:  Call to a member function bindParam() on a non-object in /home/designmodesto/ingomar/app/classes/class.application.php on line 733

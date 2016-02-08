@@ -1,0 +1,158 @@
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal itemForm" data-val="{{item.id}}">
+      <div class="form-group">
+        <label class="control-label col-md-3" for="name{{item.id}}">Name</label>
+        <div class="col-md-9">
+          <input type="text" id="name{{item.id}}" name="name" value="{{item.name}}" placeholder="Name" class="form-control" data-validation="required"><br />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3">On Menu Screen</label>
+        <div class="col-md-9">
+          <input type="checkbox" id="onMenu" {% if item.onMenu %}checked{% endif %}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3">Default To Open</label>
+        <div class="col-md-9">
+          <input type="checkbox" id="defaultOpen" {% if item.defaultOpen %}checked{% endif %}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="description{{item.id}}">Description</label>
+        <div class="col-md-9">
+          <textarea id="description{{item.id}}" name="subName" placeholder="Category description" class="form-control" data-validation="required">{{item.subName}}</textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3">&nbsp;</label>
+        <div class="col-md-9">
+          <button type="submit" class="btn btn-primary" id="updateBtn"><i class="fa fa-upload"></i> Update Category</button>
+          <span id="updateStatus"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="name78">Image</label>
+        <div class="controls pageImage">
+          <div class="row">
+       			<div class="col-md-4">
+       			  <input id="imageUploader" type="file" name="files[]" data-url="{{makeURL('upload/icon')}}">
+       			  <div class="progress">
+                <div id="imageProgress" class="progress-bar" role="progressbar" style="width: 0%">
+                </div>
+              </div>
+    				</div>
+    				<div class="col-md-4" id="imageFile">
+    				{% if item.icon > '' %}
+            <img  class="img-polaroid" src="{{makeURL('img/icon/'~item.icon)}}">
+    				{% else %}
+    				No File Uploaded
+    				{% endif %}
+    				</div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+
+    $.validate({
+  		form : '.itemForm'
+    });
+
+    $('#delPageImage').click(function(){
+      $.get('{{makeURL("admin/menucats/delPageImage/"~id)}}', function(){
+        $('#pageImage>img').slideUp();
+        $('#delPageImage').slideUp();
+      });
+    });
+
+    $('#imageUploader').fileupload({
+      autoUpload: true,
+      //dataType: 'text/html',
+      uploadTemplateId: null,
+      downloadTemplateId: null,
+      done: function (e, data) {
+        console.log(data);
+        $.each(data.result.files, function (index, file) {
+          var file = file;
+          $.post('{{makeURL("admin/menucats/setPic/"~item.id)}}', {file: file.name}, function(){
+            $('#imageFile').html('<img class="img-polaroid" src="{{makeURL('img/icon/')}}'+file.name+'">');
+          });
+        });
+      },
+      progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        var pct = progress+'%';
+        $('#imageProgress').css('width', pct);
+      }
+    });
+
+    $('#onMenu').onoff();
+    $('#onMenu').change(function(){
+      var id = '{{item.id}}';
+      var status = ($(this).prop('checked')) ? 1 : 0;
+      var icon=$('#'+id).children('.eye-icon').first();
+      $.get('{{makeURL('admin/menucats/setOnMenu/')}}'+id+'/'+status, function(){
+    	  switch(status){
+        	case 1:
+        	  var newIcon = 'fa-eye';
+        	  break;
+        	case 0:
+        	  var newIcon = 'fa-eye-slash';
+        	  break;
+      	}
+    	  icon.removeClass('fa-eye').removeClass('fa-eye-slash').addClass(newIcon);
+      });
+    });
+
+    $('#defaultOpen').onoff();
+    $('#defaultOpen').change(function(){
+      var id = '{{item.id}}';
+      var status = ($(this).prop('checked')) ? 1 : 0;
+      var icon=$('#'+id).children('.open-icon').first();
+      $.get("{{makeURL('admin/menucats/setDOpen/')}}"+id+'/'+status, function(){
+    	  switch(status){
+        	case 1:
+        	  var newIcon = 'fa-folder-open-o';
+        	  break;
+        	case 0:
+        	  var newIcon = 'fa-folder-o';
+        	  break;
+      	}
+    	  icon.removeClass('fa-folder-o').removeClass('fa-folder-open-o').addClass(newIcon);
+      });
+    });
+
+  	$('.itemForm').submit(function(e){
+     	e.preventDefault();
+      $('#updateBtn').addClass('disabled').html('<i class="fa fa-spin fa-spinner"></i> Updating...');
+      $('#delBtn').addClass('disabled');
+    	var id = $(this).attr('data-val');
+    	var data = $(this).serializeObject();
+    	var self = $(this);
+    	$.ajax({
+        method: "PUT",
+        url: "{{makeURL('admin/menucats/')}}"+id,
+        data: data
+      }).done(function() {
+    	  var name = $('#name'+id).val();
+      	$('#itemName'+id).html(name);
+        $('#updateBtn').removeClass('disabled').html('<i class="fa fa-upload"></i> Update Settings');
+        $('#delBtn').removeClass('disabled');
+        $('#updateStatus').text(' Updated!').addClass('text-success');
+        setTimeout(function(){
+          $('#updateStatus').fadeOut("slow");
+        }, 1500);
+    	});
+     	return false;
+  	});
+
+	});
+})(jQuery);
+</script>

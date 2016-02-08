@@ -1,0 +1,65 @@
+{% include 'adminHeader.html' %}
+<div class="container">
+<!--Menu Category Area -->
+  <div class="row">
+    <div class="col-md-5">
+      <h3>Manage Menu Prices</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <form id="pricesForm">
+        <table class="table table-bordered table-condensed">
+          <thead>
+            <tr>
+              <th>Category</th><th>Small</th><th>Medium</th><th>Large</th><th>Feast</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for cat in cats %}
+            <tr>
+              <td>{{cat.name}}</td>
+              <td><input type="number" name="{{cat.id}}_small" value="{{prices[cat.id]['small']}}"></td>
+              <td><input type="number" name="{{cat.id}}_medium" value="{{prices[cat.id]['medium']}}"></td>
+              <td><input type="number" name="{{cat.id}}_large" value="{{prices[cat.id]['large']}}"></td>
+              <td><input type="number" name="{{cat.id}}_feast" value="{{prices[cat.id]['feast']}}"></td>
+            </tr>
+        {% endfor %}
+            <tr>
+              <td colspan="5" align="center"><button type="submit" class="btn btn-primary">Save Prices</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div> <!-- /container -->
+
+
+
+{% include 'adminFooter.html' %}
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+  	$('#pricesForm input').change(function(){
+    	$(this).css('color', 'red')
+  	});
+
+
+    $('#pricesForm').submit(function(e){
+    	e.preventDefault();
+      e.preventDefault();
+      data = $(this).serializeObject();
+      $.post('{{makeURL("admin/menuprice")}}', data, function(){
+        $('#pricesForm input').css('color', 'black')
+      });
+    });
+
+	});
+})(jQuery);
+
+</script>
+
+{% include 'adminPostFooter.html' %}

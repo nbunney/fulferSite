@@ -1,0 +1,25 @@
+#adminHeaderLogo{height:50px;margin-top:-15px;}
+.noDisplay{display:none;}
+.fa-thumbs-down,.fa-lock,.fa-arrow-circle-right{color:#A22;}
+.fa-lock{width:13px;}
+.fa-blank{width:10px;height:14px;}
+.adminItemHeader,.adminItemSearch,.adminCatHeader{float:left;width:100%;cursor:pointer;border-top:1px solid #666;}
+.adminItemSearch #search{width:350px;}
+#sortable,.sortable,.sortableType,#catList{list-style:none;padding:0;margin:0;}
+.sortable.subItemList{margin-left:10px;padding:0 3px;display:none;background:#eee;}
+.form-inline .fa{vertical-align:0;line-height:1.7;}
+.form-inline .form-control.item-name{width:175px;}
+.form-inline .form-control.item-desc{width:350px;}
+.catIcon{margin:0 10px;}
+.fullMenuList{display:block;width:86%;float:left;margin:2%;list-style:none;border:1px solid #000;min-height:30px;padding-left:10px;}
+.connectedSortable{display:block;width:43%;float:left;margin:2%;list-style:none;border:1px solid #000;min-height:30px;padding-left:10px;}
+.fullMenuList>li, .connectedSortable>li{float:left;cursor:pointer;}
+.fullMenuList>li>img, .connectedSortable>li>img{width:10%;float:left;}
+.fullMenuList>li>h3, .connectedSortable>li>h3{width:85%;float:right;font-size:18px;margin:5px 0;}
+.badge-error{background-color:#b94a48;}
+.badge-warning{background-color:#f89406;}
+.badge-success{background-color:#468847;}
+.badge-info{background-color:#3a87ad;}
+.nav>li>a{padding: 10px;}
+.scrollable{overflow-y: scroll; overflow-x: hidden;}
+.claimImage{max-height: 200px;}

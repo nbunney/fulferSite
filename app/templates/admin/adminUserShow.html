@@ -1,0 +1,263 @@
+<form class="form-horizontal" id="itemForm" data-val="{{user.id}}" data-name="{{ user.fname }}" data-cur="{{ user.currentUser }}">
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputFName">Name</label>
+    <div class="col-md-4"><input class=" form-control" type="text" id="inputFName" name="fname" value="{{ user.fname }}" placeholder="First Name" data-validation="required"></div>
+    <div class="col-md-4"><input class=" form-control" type="text" id="inputLName" name="lname" value="{{ user.lname }}" placeholder="Last Name" data-validation="required"></div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputUName">User Name</label>
+    <div class="col-md-4">
+      <input class=" form-control" type="text" id="inputUName" name="uname" value="{{ user.uname }}" placeholder="User Name" data-validation="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputPhone">Phone</label>
+    <div class="col-md-4">
+      <input class=" form-control" type="text" id="inputPhone" name="phone" value="{{ user.phone }}" placeholder="Phone" data-validation="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputEmail">Email Address</label>
+    <div class="col-md-6">
+      <input class="form-control ]" name="email" value="{{ user.email }}" type="text" id="inputEmail" placeholder="Email Address" data-validation="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputAddress">Address</label>
+    <div class="col-md-8">
+      <input class="col-md-8 form-control" type="text" name="address" value="{{ user.address }}" id="inputAddress" placeholder="Address" data-validation="required">
+    </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+      <input class="form-control" type="text" name="city" value="{{ user.city }}" id="inputCity" placeholder="City" data-validation="required">
+    </div>
+    <div class="col-md-2">
+      <input class="form-control ,minSize[2],custom[onlyLetterSp]]" type="text" name="state" value="{{ user.state }}" id="inputState" placeholder="State" data-validation="required">
+    </div>
+    <div class="col-md-2">
+      <input class="form-control ,minSize[5],custom[onlyNumberSp]]" type="text" name="zip" value="{{ user.zip }}" id="inputZip" placeholder="Zip 5" data-validation="required">
+    </div>
+  </div>
+  {% if not new %}
+    <div class="form-group">
+    <label class="control-label col-md-3">Role</label>
+    <div class="col-md-9">
+      <select class="user-role" data-val="{{user.id}}">
+      {% for role in roles %}
+        {% if user.role == role.id %}
+          {% set sel = ' selected="selected" ' %}
+        {% else %}
+          {% set sel = '' %}
+        {% endif %}
+        <option {{sel}} value="{{role.id}}">{{role.name}}</option>
+      {% endfor %}
+      </select>
+    </div>
+  </div>
+    <div class="form-group">
+    <label class="control-label col-md-3">Status</label>
+    <div class="col-md-9">
+      <input type="checkbox" id="status" {% if user.status %}checked{% endif %}>
+    </div>
+  </div>
+  {% endif %}
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputPass">Password{% if not new %}<br><small>(Only updated if filled in){% endif %}</small></label>
+    <div class="col-md-8">
+      <input class="form-control {% if new %}{% endif %}" name="password" type="password" id="inputPassX">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3" for="inputPass">Password Again</label>
+    <div class="col-md-8">
+      <input class="form-control ]" name="password2" value="" type="password" id="inputPass2">
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="control-label col-md-3">&nbsp;</label>
+    <div class="col-md-8">
+{% if not new %}
+      <button type="button" id="subButton" class="btn btn-primary"><i class="fa fa-upload"></i> Update User</button>
+      <span id="updateStatus"></span>
+      <button type="button" data-id="{{user.id}}" class="btn btn-danger pull-right del-user"><i class="fa fa-trash-o"></i> Delete User</button>
+{% else %}
+      <button type="button" id="subButton" class="btn btn-primary">Add User</button>
+{% endif %}
+    </div>
+  </div>
+</form>
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+
+    $.validate({
+  		form : '.itemForm',
+      modules : 'security'
+    });
+
+    $('#status').onoff();
+    $('#status').change(function(){
+      var id = '{{user.id}}';
+      status = ($(this).prop('checked')) ? 1 : 0;
+      var icon=$('#'+id).children('.stat-icon').first();
+      $.get('{{makeURL('admin/users/setStat/')}}'+id+'/'+status, function(){
+    	  switch(status){
+        	case '0':
+        	  var newIcon = 'fa fa-thumbs-down';
+        	  break;
+        	case '1':
+        	  var newIcon = 'fa fa-thumbs-up';
+        	  break;
+      	}
+    	  icon.removeClass('fa fa-thumbs-up fa fa-thumbs-down').addClass(newIcon);
+      	doIcons();
+      });
+    });
+
+
+  	$('#subButton').click(function(){
+    	var id = $('#itemForm').attr('data-val');
+    	var data = $('#itemForm').serializeObject();
+    	var self = $('#itemForm');
+    {% if new %}
+      $(this).addClass('disabled').html('<i class="fa fa-spinner fa-spin"></i> Adding new user...');
+    	$.post('{{makeURL('admin/users/New/')}}', data, function(id){
+        $('#subButton').removeClass('disabled').html('<i class="fa fa-upload"></i> Update User');
+        $('.del-user').removeClass('disabled');
+        $('#updateStatus').text(' Added New User!').addClass('text-success');
+        setTimeout(function(){
+          $('#updateStatus').fadeOut("slow", function(){
+            $('#updateStatus').text().removeClass('text-success');
+            location.reload();
+          })
+        }, 1500);
+    	});
+    {% else %}
+      $(this).addClass('disabled').html('<i class="fa fa-spinner fa-spin"></i> Updating...');
+      $('.del-user').addClass('disabled');
+    	$.post('{{makeURL('admin/users/')}}'+id, data, function(){
+     	  var name = $('#name').val();
+       	$('#itemName'+id).html(name);
+        $('#subButton').removeClass('disabled').html('<i class="fa fa-upload"></i> Update User');
+        $('.del-user').removeClass('disabled');
+        $('#updateStatus').text(' Updated!').addClass('text-success');
+        setTimeout(function(){
+          $('#updateStatus').fadeOut("slow", function(){
+            $('#updateStatus').text().removeClass('text-success');
+          })
+        }, 1500);
+    	});
+    {% endif %}
+     	return false;
+  	});
+
+  	$('.user-role').change(function(){
+    	var id = $(this).attr('data-val');
+    	var newRole = $(this).val();
+    	var icon=$('#typeIcon'+id);
+    	console.info('change', '{{makeURL("admin/users/setRole/")}}'+id+'/'+newRole)
+    	$.get('{{makeURL("admin/users/setRole/")}}'+id+'/'+newRole, function(){
+    	  switch(newRole){
+        	case '1':
+        	  var newIcon = 'fa fa-user';
+        	  break;
+        	case '2':
+        	  var newIcon = 'fa fa-pencil';
+        	  break;
+        	case '3':
+        	  var newIcon = 'fa fa-key';
+        	  break;
+        	case '4':
+        	  var newIcon = 'fa fa-star';
+        	  break;
+      	}
+    	  icon.removeClass('fa fa-star fa fa-pencil fa fa-key fa fa-user').addClass(newIcon);
+      	doIcons();
+    	});
+  	});
+
+  	$('.del-user').click(function(){
+      $(this).addClass('disabled').html('<i class="fa fa-spinner fa-spin"></i> Deleting User…');
+      $('#subButton').addClass('disabled');
+  	  if (confirm('Are you sure you want to delete this user?')){
+      	var userID = $(this).attr('data-id');
+      	var self = $(this);
+      	$.get('{{makeURL('admin/users/del/')}}'+userID, function(){
+          //location.reload();
+        	$('#item_'+userID).slideUp().remove();
+        	$('#showItem').html('');
+      	});
+      }else{
+        $(this).removeClass('disabled').html('<i class="fa fa-trash-o"></i> Delete User');
+        $('#subButton').removeClass('disabled');
+      }
+  	});
+
+    $('.delAdmin').click(function(){
+      var id = $(this).attr('data-id');
+      var self = $(this);
+      var name = $(this).parent().prev().prev().prev().prev().text();
+      if(name.slice(-5) == '(you)'){
+        var name = 'yourself';
+      }
+      if(confirm('Are you sure you want to remove '+name+' as an admin?')){
+        $.get(window.baseURL+'manageusers/deladmin/'+id, function(response){
+          if(response != 'ok'){
+            alert('There was a problem! Please try again\nError:'+response);
+          }else{
+            $(self).parent().parent().fadeOut(function(){
+              $(self).parent().parent().remove();
+            });
+            location.reload();
+          }
+        })
+      }
+    });
+
+
+    $('#del-admin').click(function(){
+      var current = $('#itemForm').attr('data-cur');
+      var id = $('#itemForm').attr('data-val');
+      var name = $('#itemForm').attr('data-name');
+      if(current=='1'){
+        var name = 'yourself';
+      }
+      if(confirm('Are you sure you want to remove '+name+' as an admin?')){
+        $.get(window.baseURL+'admin/users/deladmin/'+id, function(response){
+          if(response != 'ok'){
+            alert('There was a problem! Please try again\nError:'+response);
+          }else{
+            $('#del-admin').fadeOut();
+            $('#add-admin').fadeIn();
+            $('#userPrivs').slideUp();
+            $('#userPrivs')[0].reset();
+          }
+        });
+      }
+    });
+
+    $('#add-admin').click(function(){
+      $(this).fadeOut();
+      $('#del-admin').fadeIn();
+      $('#userPrivs').slideDown();
+    });
+
+    $('.admin-priv:checkbox').change(function(){
+      var data = $('#userPrivs').serialize();
+      console.log(data);
+      $.get(window.baseURL+'admin/users/saveadminprivs/{{ user.id }}', data, function(response){
+        if(response != 'ok'){
+          alert('There was a problem! Please try again\nError:'+response);
+        }
+      });
+    });
+
+
+	});
+})(jQuery);
+</script>

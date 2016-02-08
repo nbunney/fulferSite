@@ -1,0 +1,98 @@
+{% include 'adminPreheader.html' %}
+{% include 'adminHeader.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Manage Job Applicants</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="input-group">
+        <span class="input-group-addon">Search:</span>
+        <input class="form-control" id="searchCust" type="text" placeholder="Job Name">
+      </div>
+      {% set found=0 %}
+      {% for item in jobs %}
+        {% if not found and item.active==0 %}
+          {% set found=1 %}
+      <div class="row">
+        <div class="col-md-5">
+          <div class="adminItemHeaderArea">
+            <span id="itemName{{item.id}}" class="item-name">Inactive Jobs</span>
+          </div>
+        </div>
+      </div>
+        {% endif %}
+      <ul class="sortable">
+        <li id="item_{{item.id}}">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="adminItemHeader" id="{{item.id}}">
+                <span id="itemName{{item.id}}" class="item-name item-search pull-left">{{item.name|raw}}</span>
+                <div class="balance pull-right">{{apps[item.id]|length}} Apps, {{item.newApps}} New</div>
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-7" id="showItem">
+      <center><h4>Please select a job to view applicants for.</h4></center>
+    </div>
+  </div>
+</div> <!-- /container -->
+
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+{% include 'adminPrescript.html' %}
+
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+
+  	$('#searchCust').keyup(function(){
+      doSearch();
+  	});
+
+  	$('#searchCust').blur(function(){
+      doSearch();
+  	});
+
+    $('.adminItemHeader').click(function(){
+      var self=$(this);
+      $('.adminItemHeader').not(self).removeClass('adminItemSelected');
+      self.addClass('adminItemSelected');
+      var id = self.attr('id');
+      $('.icon-chevron-right').removeClass('icon-chevron-right').addClass('icon-blank');
+      $('#showItem').load('{{makeURL("admin/applicants/load/")}}'+id, function(){
+        $('#curIcon'+id).removeClass('icon-blank').addClass('icon-chevron-right');
+      });
+    })
+	{% if selJob %}
+  	$('#{{selJob}}').click();
+	{% endif %}
+
+	});
+
+	function doSearch(){
+  	var val = $('#searchCust').val().toLowerCase();
+    	$('.item-search').each(function(){
+    	text = $(this).html().toLowerCase();
+    	if (text.indexOf(val) != -1){
+      	$(this).parent().parent().parent().parent().show();
+    	}else{
+      	$(this).parent().parent().parent().parent().hide();
+    	}
+  	});
+	}
+
+})(jQuery);
+
+</script>
+
+{% include 'postfooter.html' %}
