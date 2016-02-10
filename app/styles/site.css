@@ -101,7 +101,7 @@ h4 {
     padding-top: 5px;
 }
 .jumbotron {
-    background-image: url(CourtGavel.jpg);
+    background-image: url("/img/CourtGavel.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -115,11 +115,15 @@ h4 {
     padding-top: 10px;
 }
 #attorneyImage {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  display: -webkit-flex; /* For Safari */
-  -webkit-justify-content: center; /* For Safari */
-  -webkit-align-items: center; /* For Safari */
+  display: -webkit-inline-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+}
+#attorneyImage img {
+    max-height: 100px;
+    width: auto;
 }

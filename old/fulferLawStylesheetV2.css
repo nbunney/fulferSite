@@ -115,11 +115,18 @@ h4 {
     padding-top: 10px;
 }
 #attorneyImage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  display: -webkit-flex; /* For Safari */
-  -webkit-justify-content: center; /* For Safari */
-  -webkit-align-items: center; /* For Safari */
+    display: inline-flex;
+    height: 100%;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: -webkit-inline-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+}
+#attorneyImage img {
+    max-height: 375px;
+    width: auto;
+    vertical-align: middle;
 }
