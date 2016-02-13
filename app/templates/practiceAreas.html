@@ -1,0 +1,113 @@
+{% include 'header.html' %}
+<div class="body">
+  <div class="jumbotron">
+    <h2>Areas of Practice</h2>
+  </div>
+  <div class="container">
+    <!-- navigation tabs -->
+    <ul class="nav nav-tabs" id="navtabsContent" role="tablist">
+      <li role="presentation" class="active"><a href="#estate" aria-controls="estate" role="tab" data-toggle="tab">Estate Planning, Probate & Trust Administration</a></li>
+      <li role="presentation"><a href="#dui" aria-controls="dui" role="tab" data-toggle="tab">DUI & Criminal</a></li>
+      <li role="presentation"><a href="#family" aria-controls="family" role="tab" data-toggle="tab">Family Law</a></li>
+      <li role="presentation"><a href="#personal" aria-controls="personal" role="tab" data-toggle="tab">Personal Injury</a></li>
+    </ul>
+    <!-- tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="estate">
+        <h3>Estate Planning, Probate & Trust Administation</h3>
+        <p>Ensure that your loved ones are provided for in your absence. We draft all the documents you will need to protect those you care for. Richard also helps to administer previously created trusts and handles probate in an expeditious manner.</p>
+        <ul class="bulletList">
+          <li>Wills</li>
+          <li>Trusts</li>
+          <li>Powers of Attorney</li>
+          <li>Probate</li>
+          <li>Administration of Trusts</li>
+        </ul>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="dui">
+        <h3>DUI & Criminal</h3>
+        <p>Persons charged with crimes have powerful protection promised through the United States and individual State Constitutions. Richard Fulfer is familiar with these highly complex laws and can examine the needs of his clients to ensure the protection of their rights under the law. Through aggressive legal representation, Richard seeks the best outcome possible for his clients.</p>
+        <ul class="bulletList">
+          <li>Domestic Violence</li>
+          <li>DUI</li>
+          <li>Drug Possession</li>
+          <li>Juvenile Crimes</li>
+          <li>Child Abuse</li>
+          <li>Fraud</li>
+          <li>Drugs</li>
+          <li>Felony</li>
+          <li>Misdemeanors</li>
+          <li>Expungent</li>
+        </ul>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="family">
+        <h3>Family Law</h3>
+        <p>Richard Fulfer has experience and can provide personal legal counsel at critical times in the lives of his clients. He is dedicated to aggressively following cases to successful completion. Richard can provide a full range of family law services to ensure that the needs and rights of his clients are protected.</p>
+        <ul class="bulletList">
+          <li>Divorce</li>
+          <li>Legal Separation</li>
+          <li>Child Custody & Visitation</li>
+          <li>Restraining Order</li>
+          <li>Community & Separate Property</li>
+          <li>Child Support Modification</li>
+          <li>Guardianship</li>
+          <li>Spousal Support</li>
+          <li>Domestic Violence</li>
+          <li>Conservatorship</li>
+          <li>Adoptions</li>
+        </ul>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="personal">
+        <h3>Personal Injury</h3>
+        <p>Richard Fulfer is able to represent personal injury victims and help them to receive compensation for their pain, suffering, and medical bills. Having years of legal experience in handling personal injury matters means clients are able to get resolution of their cases in a timely manner. No fee if no recovery. Home and hospital appointments are available.</p>
+        <ul class="bulletList">
+          <li>Car Accidents</li>
+          <li>Motorcycle Accidents</li>
+          <li>Dog Bites</li>
+          <li>Slip & Fall</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'footer.html' %}
+<script language="javascript" type="text/javascript">
+(function($) {
+	$(function() {
+
+	});
+})(jQuery);
+    
+// tab script
+$('.nav-tabs a[href="#estate"]').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+$('.nav-tabs a[href="#dui"]').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+$('.nav-tabs a[href="#family"]').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+$('.nav-tabs a[href="#personal"]').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+// function to show tab by id
+$(function() {
+    var hash = document.location.hash;
+    
+    if (hash) {
+        console.log(hash);
+        $('.nav-tabs a[href='+hash+']').tab('show');
+    }
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        window.location.hash = e.target.hash;
+    });
+});
+</script>
+{% include 'postFooter.html' %}

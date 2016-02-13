@@ -626,32 +626,44 @@
 .onoffswitch-inner:after,.onoffswitch-inner:before{float:left;padding:0;width:50%;height:26px;font:700 14px/26px Trebuchet,Arial,sans-serif;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .onoffswitch-inner:before{content:"YES";padding-left:10px;color:#FFF;background-color:#2FCCFF}
 .onoffswitch-inner:after{content:"NO";padding-right:10px;color:#999;background-color:#EEE;text-align:right}
+#navbarContent ul li a,body,html{color:#1a4c1a}
 .onoffswitch-switch{position:absolute;top:0;bottom:0;right:40px;width:18px;margin:4px;background:#fff;border:2px solid #999;border-radius:20px;-webkit-transition:right .2s ease-in,-webkit-box-shadow .2s ease-in;transition:right .2s ease-in,box-shadow .2s ease-in}
-.carouselImage,.jumbotron{background-size:cover;background-repeat:no-repeat;background-position:center center}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner{margin-left:0}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
-body,html{color:#1a4c1a;font-family:Verdana;text-align:center}
-#footer,#navbarContent ul li a,.carouselText,h2,h3,h4{font-family:Cinzel,serif}
-.body{min-height:calc(100vh - 250px)}
-.carouselImage{min-height:350px;position:relative;height:85vh;opacity:.7}
-#image1{background-image:url(/img/CourtGavel.jpg)}
-#image2{background-image:url(/img/Courtroom.jpg)}
-#image3{background-image:url(/img/Books.jpg)}
-.carouselText{color:#fff;display:block;font-weight:700;left:0;position:absolute;margin-top:-200px;width:100%;z-index:20}
-#gridContent{background-color:#e2c99c;padding-bottom:30px;padding-top:50px;margin:0}
-.col-sm-4{padding-bottom:20px}
-.fa{color:#fff}
-.btn-xs{background-color:inherit;color:#1a4c1a;border:1px solid #1a4c1a}
-#footer,h2{color:#fff}
-#blockContent{padding-bottom:50px;padding-top:50px}
-#navbarContent ul li a{color:#1a4c1a}
+body,html{font-family:Verdana;text-align:center}
+#footer,#navbarContent ul li a,#navtabsContent li a,.carouselText,h2,h3,h4{font-family:Cinzel,serif}
 #navbar{background-color:#fff;opacity:.8}
-#footer{background-color:#b18435;font-size:.7em;min-height:175px;padding:30px 10px 0;text-align:left;margin-top:20px}
+.carouselImage,.jumbotron{background-size:cover;background-repeat:no-repeat;background-position:center center;opacity:.7}
+#footer{color:#fff;background-color:#b18435;font-size:.7em;min-height:175px;padding:30px 10px 0;text-align:left;margin-top:20px}
 #footerBox{border-left:1px solid}
 #footerBox a{color:inherit;text-decoration:none}
 #inventawebFooter{color:#fff;background-color:#765823;font-size:.7em;height:25px;padding-top:5px}
-.jumbotron{background-image:url(/img/CourtGavel.jpg);opacity:.7}
-#attorneyContent{text-align:left}
-#attorneyContent .row{padding-bottom:10px;padding-top:10px}
-#attorneyImage{align-items:center;justify-content:center;flex-direction:column;display:-webkit-inline-flex;-webkit-justify-content:center;-webkit-align-items:center}
-#attorneyImage img{max-height:100px;width:auto}
+.body{min-height:calc(100vh - 200px)}
+.carouselImage{min-height:350px;position:relative;height:85vh}
+.carouselText,.imageAttribution{display:block;left:0;position:absolute}
+#image1{background-image:url(/img/CourtGavel.jpg)}
+#image2{background-image:url(/img/Courtroom.jpg)}
+#image3{background-image:url(/img/Books.jpg)}
+.imageAttribution{color:#fff;font-size:.7em;margin:-30px 10px 0;z-index:19}
+.imageAttribution p a{color:inherit;text-decoration:none}
+.carouselText{color:#fff;font-weight:700;margin-top:-200px;width:100%;z-index:20}
+#homeTopContent{background-color:#e2c99c;padding:50px 10px 30px;margin:0}
+#homeTopContent .col-sm-4{padding-bottom:20px}
+.fa{color:#fff}
+#navtabsContent li a,.btn-xs{color:#1a4c1a;text-decoration:none}
+.btn-xs{background-color:inherit;border:1px solid #1a4c1a}
+#homeBottomContent{padding:50px 10px}
+h2{color:#fff}
+.jumbotron{background-image:url(/img/GavelBanner.jpg)}
+#attorneyContent{padding:20px 10px;text-align:left}
+#attorneyContent .row{padding:10px 0}
+#attorneyImage{align-items:center;justify-content:center;flex-direction:column;display:-webkit-inline-flex;-webkit-justify-content:center;-webkit-align-items:center;padding:20px 10px}
+#attorneyImage img{max-height:400px;width:auto}
+.tab-content{text-align:left;padding:30px}
+.bulletList{list-style-type:circle}
+#contactContent .row{padding:10px 0}
+#contactContent .contactTop{padding:10px;text-align:left;text-decoration:none}
+#contactContent .contactBottom{padding:10px}
+.line{height:1px;border-bottom:1px solid #e2c99c;margin:10px}
+.alphaList{list-style-type:lower-alpha}
+.numeralList{list-style-type:lower-roman}

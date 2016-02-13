@@ -3,10 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6" id="footerBox">
-                <p><a href="#">Home</a></p>
-                <p><a href="#">Attorney</a></p>
-                <p><a href="#">Practice Areas</a></p>
-                <p><a href="#">Contact Us</a></p>
+                {% for m in menu %}
+                    <p><a href="/{{m.route}}">{{m.name}}</a></p>
+                {% endfor %}
                 <p><a href="#">Terms of Use</a></p>
             </div>
             <div class="col-sm-6" id="footerBox">
