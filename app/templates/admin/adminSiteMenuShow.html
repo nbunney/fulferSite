@@ -79,16 +79,14 @@
           <button type="button" class="btn btn-danger pull-right del-item" id="delBtn" data-id="{{item.id}}"><i class="fa fa-trash-o"></i> Delete Menu Item</button>
         </div>
       </div>
-<!--
       <div class="form-group">
         <label class="control-label col-md-3" for="name78">Image</label>
         <div class="controls pageImage">
           <div class="row">
        			<div class="col-md-4">
-       			  <input id="imageUploader" type="file" name="files[]" data-url="{{makeURL('upload/page')}}">
+       			  <div class="btn btn-primary" id="uploadImage">Upload Image</div>
        			  <div class="progress">
-                <div id="imageProgress" class="progress-bar" role="progressbar" style="width: 0%">
-                </div>
+                <div id="imageProgress" class="progress-bar" role="progressbar" style="width: 0%"></div>
               </div>
     				</div>
     				<div class="col-md-4" id="imageFile">
@@ -101,7 +99,6 @@
           </div>
         </div>
       </div>
--->
     </form>
   </div>
 </div>
@@ -109,6 +106,22 @@
 <script language="javascript" type="text/javascript">
 (function($) {
 	$(function() {
+
+
+    var uploader = new ss.SimpleUpload({
+      button: $('#uploadImage'),
+      url: '/upload/page/',
+      name: 'files',
+      multiple: false,
+      onProgress: function(pct){
+        var pct = pct+'%';
+        $('#imageProgress').css('width', pct);
+      },
+      onComplete: function(file, result){
+
+        console.log(result.name);
+      }
+    });
 
     $.validate({
   		form : '.itemForm'
@@ -121,43 +134,16 @@
       });
     });
 
-/*
-    $('#imageUploader').fileupload({
-      autoUpload: true,
-      //dataType: 'text/html',
-      uploadTemplateId: null,
-      downloadTemplateId: null,
-      done: function (e, data) {
-        console.log(data);
-        $.each(data.result.files, function (index, file) {
-          var file = file;
-          $.post('{{makeURL("admin/sitemenu/setPic/"~item.id)}}', {file: file.name}, function(){
-            $('#imageFile').html('<img class="img-polaroid" style="width:90%;" src="{{makeURL('img/page/')}}'+file.name+'">');
-          });
-        });
-      },
-      progressall: function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        var pct = progress+'%';
-        $('#imageProgress').css('width', pct);
-      }
-    });
-*/
-
-    $('#showH1').onoff();
-    $('#showH1').change(function(){
-      var id = '{{item.id}}';
-      var showH1 = ($(this).prop('checked')) ? 1 : 0;
-      $.get("{{makeURL('admin/sitemenu/setShow/')}}"+id+'/'+showH1);
-    });
-
     $('#hidden').onoff();
     $('#hidden').change(function(){
       var id = '{{item.id}}';
       var hidden = ($(this).prop('checked')) ? 1 : 0;
       console.info('hidden', hidden);
       var icon=$('#'+id).children('.stat-icon').first();
-      $.get('{{makeURL('admin/sitemenu/setHidden/')}}'+id+'/'+hidden, function(){
+      $.ajax({
+        type: 'put',
+        url: '{{makeURL('admin/sitemenu/setHidden/')}}'+id+'/'+hidden
+      }).done(function(data){
         console.info('hidden', hidden);
     	  switch(hidden){
         	case 1:

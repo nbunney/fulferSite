@@ -76,7 +76,7 @@ $app->get('/admin/sitemenu/setShow/:itemID/:show', $authenticateAdmin, function(
   die();
 });
 
-$app->get('/admin/sitemenu/setHidden/:itemID/:hidden', $authenticateAdmin, function($itemID, $hidden) use ($app) {
+$app->put('/admin/sitemenu/setHidden/:itemID/:hidden', $authenticateAdmin, function($itemID, $hidden) use ($app) {
   $dbh = getConnection();
   sitemenu::setHidden($dbh, $itemID, $hidden);
   die();
@@ -154,11 +154,5 @@ $app->get('/admin/users/del/:userID/', $authenticateAdmin, function($userID) use
 
 $app->post('/upload/:directory/', $authenticateAdmin, function($directory) use ($app) {
   $env = $app->environment();
-  require($env['baseDir'].'../app/helpers/UploadHandler.php');
-
-  $upload_handler = new UploadHandler(array(
-    'upload_dir' => $env['baseDir'].'img/'.$directory.'/',
-    'upload_url' => makeURL('img/'.$directory.'/')
-  ));
-
+  echo upload::handleUpload($env['baseDir'].'img/'.$directory.'/');
 });

@@ -3,6 +3,7 @@ composer.phar
 /node_modules/
 /bower_components/
 /public_html/img/
+/public_html/css/main.css
 .env.php
 
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file

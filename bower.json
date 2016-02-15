@@ -6,7 +6,6 @@
     "jquery-ui": "~1.11.4",
     "ckeditor": "~4.4.7",
     "Filemanager": "~2.0.0",
-    "blueimp-file-upload": "~9.9.3",
     "fontawesome": "~4.3.0",
     "jquery": "~2.1.3",
     "jquery-form-validator": "~2.1.47",
@@ -17,14 +16,14 @@
     "fancybox": "~2.1.5"
   },
   "authors": [
-    "Nathan Bunney <nathan@Inventaweb.net>"
+    "Nate Bunney <nathan@Inventaweb.net>"
   ],
-  "description": "A simple framework derived from the Slim Framework",
+  "description": "A simple web framework derived from the Slim Framework",
   "keywords": [
     "slim",
     "framework"
   ],
-  "license": "(c)2015 MHD Inc.",
+  "license": "(c)2016, Nate Bunney.",
   "ignore": [
     "**/.*",
     "node_modules",
