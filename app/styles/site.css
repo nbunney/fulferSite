@@ -86,6 +86,9 @@ html,body {
     padding: 50px 10px 30px 10px;
     margin: 0px;
 }
+#homeTopContent .fa {
+    color: white;
+}
 #homeTopContent .col-sm-4 {
     padding-bottom: 20px;
 }
