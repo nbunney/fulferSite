@@ -174,3 +174,13 @@ h4 {
 .numeralList {
     list-style-type: lower-roman;
 }
+#termsContent {
+    text-align: left;
+}
+#termsContent h3 {
+    text-align: center;
+    padding-top: 10px;
+}
+#termsContent h4 {
+    padding-top: 10px;
+}

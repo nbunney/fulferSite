@@ -662,8 +662,11 @@ h2{color:#fff}
 .tab-content{text-align:left;padding:30px}
 .bulletList{list-style-type:circle}
 #contactContent .row{padding:10px 0}
+#termsContent h3,#termsContent h4{padding-top:10px}
 #contactContent .contactTop{padding:10px;text-align:left;text-decoration:none}
 #contactContent .contactBottom{padding:10px}
 .line{height:1px;border-bottom:1px solid #e2c99c;margin:10px}
 .alphaList{list-style-type:lower-alpha}
 .numeralList{list-style-type:lower-roman}
+#termsContent{text-align:left}
+#termsContent h3{text-align:center}
