@@ -647,10 +647,9 @@ body,html{font-family:Verdana;text-align:center}
 .imageAttribution{color:#fff;font-size:.7em;margin:-30px 10px 0;z-index:19}
 .imageAttribution p a{color:inherit;text-decoration:none}
 .carouselText{color:#fff;font-weight:700;margin-top:-200px;width:100%;z-index:20}
+#navtabsContent li a,.btn-xs{color:#1a4c1a;text-decoration:none}
 #homeTopContent{background-color:#e2c99c;padding:50px 10px 30px;margin:0}
 #homeTopContent .col-sm-4{padding-bottom:20px}
-.fa{color:#fff}
-#navtabsContent li a,.btn-xs{color:#1a4c1a;text-decoration:none}
 .btn-xs{background-color:inherit;border:1px solid #1a4c1a}
 #homeBottomContent{padding:50px 10px}
 h2{color:#fff}
