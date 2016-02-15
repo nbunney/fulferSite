@@ -2,13 +2,12 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6" id="footerBox">
-                {% for m in menu %}
-                    <p><a href="/{{m.route}}">{{m.name}}</a></p>
+            <div class="col-sm-6 footerBox">
+                {% for m in menu if (m.menuSide == 'X' or m.menuSide == 'B') %}
+                    <li><a href="/{{m.route}}">{{m.name}}</a></li>
                 {% endfor %}
-                <p><a href="#">Terms of Use</a></p>
             </div>
-            <div class="col-sm-6" id="footerBox">
+            <div class="col-sm-6 footerBox">
                 <p>Fulfur Law Office</p>
                 <p>821 13th Street, Suite E</p>
                 <p>Modesto, CA 95354</p>

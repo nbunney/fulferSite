@@ -1,7 +1,7 @@
 {% include 'header.html' %}
 <div class="body">
 <!-- image carousel -->
-<div class="container-fluid">
+<div class="container-fluid" id="carouselContainer">
   <div class="row">
     <div class="carousel slide" id="carousel" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
@@ -31,12 +31,23 @@
   </div>
   <!-- text over carousel -->
   <div class="carouselText">
-    <h1>Richard L. Fulfer</h1>
+    <h1>RICHARD L. FULFER</h1>
     <h3>Attorney at Law</h3>
   </div>
 </div>
-<!-- description of specializations -->
+<!-- main home page content -->
 <div class="container-fluid" id="homeTopContent">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {% set loc='main' %}
+        {% include 'editArea.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- description of specializations -->
+<div class="container-fluid" id="homeBottomContent">
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
@@ -65,17 +76,6 @@
         <h4>Family Law</h4>
         <p>Richard is experienced in providing legal counsel to individuals dealing with critical issues such as divorce, separation, and child custody.</p>
         <a href="practice#family" class="btn-xs btn-default" role="button">Read More</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- main home page content -->
-<div class="container-fluid" id="homeBottomContent">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        {% set loc='main' %}
-        {% include 'editArea.html' %}
       </div>
     </div>
   </div>

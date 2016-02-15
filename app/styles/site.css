@@ -1,36 +1,38 @@
 html,body {
-    color: #1a4c1a;
-    font-family: "Verdana";
+    color: #4d4033;
+    font-family: "Arial";
     text-align: center;
 }
-#navbarContent ul li a {
-    color: #1a4c1a;
-    font-family: 'Cinzel', serif;
-}
 #navbar {
-    background-color: white;
-    opacity: 0.8;
+    background-color: #4d4033;
+    font-size: 16px;
+    border: none;
+}
+#navbarContent ul li a {
+    color: white;
 }
 #footer {
     color: white;
-    background-color: #b18435;
-    font-family: 'Cinzel', serif;
+    background-color: #6a5a48;
     font-size: 0.7em;
     min-height: 175px;
     padding: 30px 10px 0;
     text-align: left;
-    margin-top: 20px;
 }
-#footerBox {
+.footerBox {
     border-left: 1px solid;
+    list-style-type: none;
 }
-#footerBox a {
+.footerBox li {
+    padding-bottom: 10px;
+}
+.footerBox a {
     color: inherit;
     text-decoration: none;
 }
 #inventawebFooter {
     color: white;
-    background-color: #765823;
+    background-color: #4d4033;
     font-size: 0.7em;
     height: 25px;
     padding-top: 5px;
@@ -38,14 +40,15 @@ html,body {
 .body {
     min-height: calc(100vh - 200px);
 }
+#carouselContainer {
+    background-color: #e0d9d1;
+}
 .carouselImage {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 350px;
-    position: relative;
-    height: 85vh;
-    opacity: 0.7;
+    height: 50vh;
 }
 #image1 {
     background-image: url("/img/CourtGavel.jpg");
@@ -70,47 +73,50 @@ html,body {
     text-decoration: none;
 }
 .carouselText {
+    background-color: #4d4033;
+    border: #e0d9d1 10px solid;
     color: white;
-    display: block;
-    font-family: 'Cinzel', serif;
+    display: inline-block;
     font-weight: bold;
     left: 0;
-    margin-top: -200px;
-    position: absolute;
-    text-shadow: 2px 1px 6px black;
-    width: 100%;
-    z-index: 20;
+    margin-top: -75px;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+}
+.carouselText h1 {
+    font-size: 42px;
+    padding-bottom: 0px;
 }
 #homeTopContent {
-    background-color: #e2c99c;
+    background-color: #e0d9d1;
+    padding: 50px 10px 50px 10px;
+}
+#homeBottomContent {
+    background-color: #e0d9d1;
     padding: 50px 10px 30px 10px;
     margin: 0px;
 }
-#homeTopContent .fa {
+#homeBottomContent .fa {
     color: white;
 }
-#homeTopContent .col-sm-4 {
+#homeBottomContent .col-sm-4 {
     padding-bottom: 20px;
 }
 .btn-xs {
     background-color: inherit;
-    border: solid 1px #1a4c1a;
-    color: #1a4c1a;
+    border: solid 1px #6a5a48;
+    color: #6a5a48;
     text-decoration: none;
-}
-#homeBottomContent {
-    padding: 50px 10px 50px 10px;
 }
 h2 {
     color: white;
-    font-family: 'Cinzel', serif;
     text-shadow: 2px 1px 6px black;
 }
 h3 {
-    font-family: 'Cinzel', serif;
+
 }
 h4 {
-    font-family: 'Cinzel', serif;
+
 }
 .jumbotron {
     background-image: url("/img/GavelBanner.jpg");
@@ -141,8 +147,7 @@ h4 {
     width: auto;
 }
 #navtabsContent li a {
-    color: #1a4c1a;
-    font-family: 'Cinzel', serif;
+    color: #6a5a48;
     text-decoration: none;
 }
 .tab-content {
