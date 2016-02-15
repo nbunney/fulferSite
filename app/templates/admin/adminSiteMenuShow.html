@@ -13,20 +13,18 @@
           <input type="checkbox" id="secure" {% if item.secure %}checked{% endif %}>
         </div>
       </div>
+      {% if item.parentMenuID==0 %}
       <div class="form-group">
-        <label class="control-label col-md-3">Right Menu</label>
+        <label class="control-label col-md-3">Menu</label>
         <div class="col-md-9">
-          <input type="checkbox" id="menuSide" {% if item.menuSide=='R' %}checked{% endif %}>
+          <select id="menuSide" class="form-control">
+            <option value="L" {% if item.menuSide=='L' %}selected{% endif %}>Left</option>
+            <option value="R" {% if item.menuSide=='R' %}selected{% endif %}>Right</option>
+            <option value="B" {% if item.menuSide=='B' %}selected{% endif %}>Bottom</option>
+          </select>
         </div>
       </div>
-<!--
-      <div class="form-group">
-        <label class="control-label col-md-3">Show H1</label>
-        <div class="col-md-9">
-          <input type="checkbox" id="showH1" {% if item.showH1 %}checked{% endif %}>
-        </div>
-      </div>
--->
+      {% endif %}
       <div class="form-group">
         <label class="control-label col-md-3" for="name{{item.id}}">Name</label>
         <div class="col-md-9">
@@ -190,12 +188,10 @@
       });
     });
 
-    $('#menuSide').onoff();
     $('#menuSide').change(function(){
-      var id = '{{item.id}}';
-      var side = ($(this).prop('checked')) ? 'R' : 'L';
-      var icon=$('#'+id).children('.side-icon').first();
-      $.get('{{makeURL('admin/sitemenu/setMenuSide/')}}'+id+'/'+side, function(){
+      side = $(this).val();
+      var icon=$('#{{item.id}}').children('.side-icon').first();
+      $.get('{{makeURL('admin/sitemenu/setMenuSide/'~item.id)}}/'+side, function(){
     	  switch(side){
         	case 'R':
         	  var newIcon = 'fa-arrow-circle-right';
@@ -203,8 +199,11 @@
         	case 'L':
         	  var newIcon = 'fa-arrow-circle-left';
         	  break;
+        	case 'B':
+        	  var newIcon = 'fa-arrow-circle-down';
+        	  break;
       	}
-    	  icon.removeClass('fa-arrow-circle-left').removeClass('fa-arrow-circle-right').addClass(newIcon);
+    	  icon.removeClass('fa-arrow-circle-left').removeClass('fa-arrow-circle-right').removeClass('fa-arrow-circle-down').addClass(newIcon);
       	doIcons();
       });
     });

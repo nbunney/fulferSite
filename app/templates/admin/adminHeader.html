@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="/img/web/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/css/main.css?v=1.0">
   <link rel="stylesheet" href="/css/less.css?v=1.0">
   <link rel="stylesheet" href="/css/admin.css?v=1.0">
 
@@ -22,25 +23,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
-        <img src="/img/web/logo45.png" id="adminHeaderLogo">
-      </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Jobs
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li {% if page == 'jobs' %} class="active" {% endif %}><a href="{{ makeURL('admin/jobs') }}">Positions</a></li>
-            <li {% if page == 'applicants' %} class="active" {% endif %}><a href="{{ makeURL('admin/applicants') }}">Applicants</a></li>
-            <li {% if page == 'appreports' %} class="active" {% endif %}><a href="{{ makeURL('admin/appreports') }}">Application Reports</a></li>
-          </ul>
-        </li>
-        <li {% if page == 'claims' %} class="active" {% endif %}><a href="{{ makeURL('admin/claims') }}">Claims</a></li>
+        <li {% if page == 'practiceareas' %} class="active" {% endif %}><a href="{{ makeURL('admin/practiceareas') }}">Practice Areas</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/admin/sitemenu">Site Menu</a></li>

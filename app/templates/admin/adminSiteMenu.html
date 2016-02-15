@@ -21,7 +21,7 @@
                   <i id="curIcon{{item.id}}" class="fa fa-blank pull-right"></i>
                   {% if item.secure %}{% set icon='lock' %}{% else %}{% set icon='unlock' %}{% endif %}
                   <i class="fa fa-{{icon}} lock-icon pull-right"></i>
-                  {% if item.menuSide=='R' %}{% set icon='right' %}{% else %}{% set icon='left' %}{% endif %}
+                  {% if item.menuSide=='R' %}{% set icon='right' %}{% elseif item.menuSide=='B' %}{% set icon='down' %}{% elseif item.menuSide=='L' %}{% set icon='left' %}{% else %}{% set icon='none' %}{% endif %}
                   <i class="fa fa-arrow-circle-{{icon}} side-icon pull-right"></i>
                   {% if item.hidden %}{% set icon='thumbs-down' %}{% else %}{% set icon='thumbs-up' %}{% endif %}
                   <i class="fa fa-{{icon}} stat-icon pull-right"></i>
@@ -30,6 +30,9 @@
                   <i class="fa fa-blank pull-right"></i>
                   {% else %}
                   <i class="fa fa-plus pull-right add1" data-id="{{item.id}}"></i>
+                  {% endif %}
+                  {% if item.edit %}
+                  <a href="{{makeURL(item.route)}}"><i class="fa fa-pencil pull-right"></i></a>
                   {% endif %}
                 </div>
                 <div class="adminItemSubMenu">
@@ -47,6 +50,9 @@
                             <i class="fa fa-{{icon}} stat-icon pull-right"></i>
                             <i class="handle fa fa-align-justify pull-right"></i>
                             <i class="fa fa-plus pull-right add2" data-id="{{subi.id}}"></i>
+                            {% if subi.edit %}
+                            <a href="{{makeURL(subi.route)}}"><i class="fa fa-pencil pull-right"></i></a>
+                            {% endif %}
                           </div>
                           <div class="adminItemSubMenu">
                             <ul id="sort{{subi.id}}" class="sortable">
@@ -62,6 +68,9 @@
                                       {% if subx.hidden %}{% set icon='thumbs-down' %}{% else %}{% set icon='thumbs-up' %}{% endif %}
                                       <i class="fa fa-{{icon}} stat-icon pull-right"></i>
                                       <i class="handle fa fa-align-justify pull-right"></i>
+                                      {% if subx.edit %}
+                                      <a href="{{makeURL(subx.route)}}"><i class="fa fa-pencil pull-right"></i></a>
+                                      {% endif %}
                                     </div>
                                   </div>
                                 </div>
@@ -173,7 +182,6 @@
         });
       }
     });
-		$( ".sortable" ).disableSelection();
 
   	$('.addForm').submit(function(e){
      	e.preventDefault();
