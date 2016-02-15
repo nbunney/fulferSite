@@ -21,6 +21,7 @@ var logger = require('gulp-logger');
 var gutil = require('gulp-util');
 var less = require('gulp-less');
 var path = require('path');
+var ignore = require('gulp-ignore');
 var plugins = require("gulp-load-plugins")({
 	pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
 	replaceString: /\bgulp[\-.]/
@@ -32,9 +33,11 @@ var dest = 'public_html/';
 var htmlopts = {comments:true,spare:true};
 
 gulp.task('scripts', function() {
-  var jsFiles = [src + 'scripts/*.js', 'bower_components/jquery-form-validator/form-validator/jquery.form-validator.js', 'bower_components/jquery-form-validator/form-validator/security.js', 'bower_components/jquery.onoff/dist/jquery.onoff.min.js', 'bower_components/fancybox/source/jquery.fancybox.js'];
+  var jsFiles = [src + 'scripts/*.js', 'bower_components/jquery-form-validator/form-validator/jquery.form-validator.js', 'bower_components/jquery-form-validator/form-validator/security.js', 'bower_components/jquery.onoff/dist/jquery.onoff.min.js', 'bower_components/fancybox/source/jquery.fancybox.js', 'bower_components/blueimp-load-image/js/load-image.all.min.js'];
   return gulp.src(plugins.mainBowerFiles().concat(jsFiles))
     .pipe(plugins.filter('*.js'))
+    .pipe(ignore.exclude('**/jquery.fileupload-angular.js'))
+		.pipe(debug({title: 'JS Files:'}))
     .pipe(concat('main.js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(dest + 'js'));
@@ -59,7 +62,6 @@ gulp.task('css', function() {
       "app/styles/site.css",
       "*"
     ]))
-		.pipe(debug({title: 'CSS Files:'}))
 		.pipe(plugins.concat('main.css'))
 		.pipe(minifyCSS({keepBreaks:true}))
 		.pipe(gulp.dest(dest + 'css'));
