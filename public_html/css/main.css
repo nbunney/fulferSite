@@ -2,6 +2,8 @@
 .editButtons,.editor{float:left;width:100%}
 .fa,.fa-stack{display:inline-block}
 .fa-ul,.footerBox{list-style-type:none}
+.carouselText1 h1,.carouselText1 h3,.carouselText2 h5{letter-spacing:4px}
+#navtabsContent li a,.btn-xs,.fancybox-nav,.footerBox a,.imageAttribution p a{text-decoration:none}
 .approveButton,.cancelButton,.editButton{cursor:pointer;z-index:102}
 .editButtons{margin-top:-14px}
 /*!
@@ -580,7 +582,7 @@
 .fancybox-close,.fancybox-nav,.fancybox-nav span{z-index:8040;position:absolute;cursor:pointer}
 #fancybox-loading div{width:44px;height:44px;background:url(fancybox_loading.gif) center center no-repeat}
 .fancybox-close{top:-18px;right:-18px;width:36px;height:36px}
-.fancybox-nav{top:0;width:40%;height:100%;text-decoration:none;background:url(blank.gif);-webkit-tap-highlight-color:transparent}
+.fancybox-nav{top:0;width:40%;height:100%;background:url(blank.gif);-webkit-tap-highlight-color:transparent}
 .fancybox-prev{left:0}
 .fancybox-next{right:0}
 .fancybox-nav span{top:50%;width:36px;height:34px;margin-top:-18px;visibility:hidden}
@@ -628,46 +630,49 @@
 .onoffswitch-inner:after{content:"NO";padding-right:10px;color:#999;background-color:#EEE;text-align:right}
 #footer,#navbarContent ul li a{color:#fff}
 .onoffswitch-switch{position:absolute;top:0;bottom:0;right:40px;width:18px;margin:4px;background:#fff;border:2px solid #999;border-radius:20px;-webkit-transition:right .2s ease-in,-webkit-box-shadow .2s ease-in;transition:right .2s ease-in,box-shadow .2s ease-in}
+#carouselContainer,.body{background-color:#cfbfaf}
 .carouselImage,.jumbotron{background-size:cover;background-repeat:no-repeat;background-position:center center}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner{margin-left:0}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
-body,html{color:#4d4033;font-family:Arial;text-align:center}
-#navbar{background-color:#4d4033;font-size:16px;border:none}
-#footer{background-color:#6a5a48;font-size:.7em;min-height:175px;padding:30px 10px 0;text-align:left}
+body,html{color:#4a4136;font-family:Arial;text-align:center}
+#navbar{background-color:#4a4136;border:none;font-size:16px;opacity:.9}
+#navbarContent ul li:hover{background-color:#646061}
+#footer{background-color:#766856;font-size:.7em;min-height:175px;padding:30px 10px 0;text-align:left}
 .footerBox{border-left:1px solid}
 .footerBox li{padding-bottom:10px}
-.footerBox a{color:inherit;text-decoration:none}
-#inventawebFooter{color:#fff;background-color:#4d4033;font-size:.7em;height:25px;padding-top:5px}
-.body{min-height:calc(100vh - 200px)}
-#carouselContainer{background-color:#e0d9d1}
+.footerBox a{color:inherit}
+#inventawebFooter{color:#fff;background-color:#4a4136;font-size:.7em;height:25px;padding-top:5px}
+.body{min-height:calc(100vh - 200px);padding-top:50px}
 .carouselImage{min-height:350px;height:50vh}
-#image1{background-image:url(/img/CourtGavel.jpg)}
+#image1{background-image:url(/img/CourtHouse.jpg)}
 #image2{background-image:url(/img/Courtroom.jpg)}
 #image3{background-image:url(/img/Books.jpg)}
 .imageAttribution{color:#fff;display:block;font-size:.7em;left:0;margin:-30px 10px 0;position:absolute;z-index:19}
-.imageAttribution p a{color:inherit;text-decoration:none}
-.carouselText{background-color:#4d4033;border:10px solid #e0d9d1;color:#fff;display:inline-block;font-weight:700;left:0;margin-top:-75px;padding:10px 20px;text-align:center}
+.imageAttribution p a{color:inherit}
+.carouselText1{background-color:#4a4136;border:10px solid #cfbfaf;color:#fff;display:inline-block;font-weight:700;margin-top:-80px;padding:0 20px;text-align:center;z-index:1000;position:relative;-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px}
+#homeBottomContent .fa,.btn-xs{color:#646061}
 #attorneyContent,#termsContent,.tab-content{text-align:left}
-.carouselText h1{font-size:42px;padding-bottom:0}
-#homeTopContent{background-color:#e0d9d1;padding:50px 10px}
-#homeBottomContent{background-color:#e0d9d1;padding:50px 10px 30px;margin:0}
-#homeBottomContent .fa{color:#fff}
-#navtabsContent li a,.btn-xs{color:#6a5a48;text-decoration:none}
+.carouselText1 h1{font-size:42px;padding-bottom:0}
+#homeBottomContent,#homeTopContent{background-color:#cfbfaf;padding:30px 10px}
+.carouselText2 h5{margin-top:0}
+.line{height:1px;border-bottom:1px solid #646061;margin:10px}
+#homeBottomContent{margin:0}
 #homeBottomContent .col-sm-4{padding-bottom:20px}
-.btn-xs{background-color:inherit;border:1px solid #6a5a48}
-h2{color:#fff;text-shadow:2px 1px 6px #000}
-.jumbotron{background-image:url(/img/GavelBanner.jpg);opacity:.7}
+.btn-xs{background-color:inherit;border:1px solid #646061}
+.jumbotron{background-color:#4a4136;opacity:.8}
+.jumbotron h1{color:#fff;font-size:42px;text-shadow:2px 1px 6px #000}
 #attorneyContent{padding:20px 10px}
 #attorneyContent .row{padding:10px 0}
 #attorneyImage{align-items:center;justify-content:center;flex-direction:column;display:-webkit-inline-flex;-webkit-justify-content:center;-webkit-align-items:center;padding:20px 10px}
-#attorneyImage img{max-height:400px;width:auto}
+#attorneyImage img{border:3px solid #646061;max-height:400px;width:auto}
+#navtabsContent li a{color:#4a4136}
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover{background-color:#e2d9cf}
 .tab-content{padding:30px}
 .bulletList{list-style-type:circle}
 #contactContent .row{padding:10px 0}
 #termsContent h3,#termsContent h4{padding-top:10px}
 #contactContent .contactTop{padding:10px;text-align:left;text-decoration:none}
 #contactContent .contactBottom{padding:10px}
-.line{height:1px;border-bottom:1px solid #e2c99c;margin:10px}
 .alphaList{list-style-type:lower-alpha}
 .numeralList{list-style-type:lower-roman}
 #termsContent h3{text-align:center}
