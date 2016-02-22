@@ -33,10 +33,9 @@ var dest = 'public_html/';
 var htmlopts = {comments:true,spare:true};
 
 gulp.task('scripts', function() {
-  var jsFiles = [src + 'scripts/*.js', 'bower_components/jquery-form-validator/form-validator/jquery.form-validator.js', 'bower_components/jquery-form-validator/form-validator/security.js', 'bower_components/jquery.onoff/dist/jquery.onoff.min.js', 'bower_components/fancybox/source/jquery.fancybox.js', 'bower_components/blueimp-load-image/js/load-image.all.min.js'];
+  var jsFiles = [src + 'scripts/*.js', 'bower_components/jquery-form-validator/form-validator/jquery.form-validator.js', 'bower_components/jquery-form-validator/form-validator/security.js', 'bower_components/jquery.onoff/dist/jquery.onoff.min.js', 'bower_components/fancybox/source/jquery.fancybox.js', 'bower_components/simple-ajax-uploader/SimpleAjaxUploader.min.js'];
   return gulp.src(plugins.mainBowerFiles().concat(jsFiles))
     .pipe(plugins.filter('*.js'))
-    .pipe(ignore.exclude('**/jquery.fileupload-angular.js'))
 		.pipe(debug({title: 'JS Files:'}))
     .pipe(concat('main.js'))
     .pipe(rename({suffix: '.min'}))

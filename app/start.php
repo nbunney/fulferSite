@@ -36,6 +36,7 @@ require __DIR__.'/routes/main.php';
 require __DIR__.'/classes/class.sitemenu.php';
 require __DIR__.'/classes/class.edits.php';
 require __DIR__.'/classes/class.users.php';
+require __DIR__.'/classes/class.upload.php';
 
 $twig = $app->view()->getEnvironment();
 $twig->addFunction('makeURL', new Twig_Function_Function('makeURL'));
