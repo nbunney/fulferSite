@@ -1,8 +1,8 @@
 .editButtons,.editor{float:left;width:100%}
 .fa,.fa-stack{display:inline-block}
 .fa-ul,.footerBox{list-style-type:none}
-.carouselText1 h1,.carouselText1 h3,.carouselText2 h5{letter-spacing:4px}
-#navtabsContent li a,.btn-xs,.fancybox-nav,.footerBox a,.imageAttribution p a{text-decoration:none}
+#carouselText1 h1,#carouselText1 h2,#carouselText2 h3{letter-spacing:4px}
+#homeBottomContent .container .row .col-sm-4 a:hover,#navtabsContent li a,.btn-sm,.contactTop,.fancybox-nav,.footerBox a,.imageAttribution p a{text-decoration:none}
 .approveButton,.cancelButton,.editButton{cursor:pointer;z-index:102}
 .editButtons{margin-top:-14px}
 /*!
@@ -614,49 +614,52 @@
 .onoffswitch-inner:after{content:"NO";padding-right:10px;color:#999;background-color:#EEE;text-align:right}
 #footer,#navbarContent ul li a{color:#fff}
 .onoffswitch-switch{position:absolute;top:0;bottom:0;right:40px;width:18px;margin:4px;background:#fff;border:2px solid #999;border-radius:20px;-webkit-transition:right .2s ease-in,-webkit-box-shadow .2s ease-in;transition:right .2s ease-in,box-shadow .2s ease-in}
-#carouselContainer,.body{background-color:#cfbfaf}
 .carouselImage,.jumbotron{background-size:cover;background-repeat:no-repeat;background-position:center center}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner{margin-left:0}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
-body,html{color:#4a4136;font-family:Arial;text-align:center}
-#navbar{background-color:#4a4136;border:none;font-size:16px;opacity:.9}
-#navbarContent ul li:hover{background-color:#646061}
-#footer{background-color:#766856;font-size:.7em;min-height:175px;padding:30px 10px 0;text-align:left}
+body,html{color:#210F03;font-family:Arial;text-align:center}
+#navbar{background-color:#210F03;border:none;font-size:16px;opacity:.9}
+#navbarContent ul li:hover{background-color:#353133}
+#footer{background-color:#4a2e1c;font-size:.7em;min-height:175px;padding:30px 10px 0;text-align:left}
 .footerBox{border-left:1px solid}
 .footerBox li{padding-bottom:10px}
 .footerBox a{color:inherit}
-#inventawebFooter{color:#fff;background-color:#4a4136;font-size:.7em;height:25px;padding-top:5px}
-.body{min-height:calc(100vh - 200px);padding-top:50px}
+#inventawebFooter,.imageAttribution{color:#fff;display:block;font-size:.7em}
+#inventawebFooter{background-color:#210F03;height:25px;padding-top:5px}
+#badgeHolder{display:block;float:right;margin-top:-55px}
+.body{background-color:#c3a088;min-height:calc(100vh - 200px);padding-top:50px}
+#homeBottomContent,#homeTopContent{background-color:#c3a088;padding:30px 10px}
+#carouselContainer{background-color:#c3a088}
 .carouselImage{min-height:350px;height:50vh}
 #image1{background-image:url(/img/CourtHouse.jpg)}
 #image2{background-image:url(/img/Courtroom.jpg)}
 #image3{background-image:url(/img/Books.jpg)}
-.imageAttribution{color:#fff;display:block;font-size:.7em;left:0;margin:-30px 10px 0;position:absolute;z-index:19}
+.imageAttribution{left:0;margin:10px 10px 0;position:absolute;z-index:19}
 .imageAttribution p a{color:inherit}
-.carouselText1{background-color:#4a4136;border:10px solid #cfbfaf;color:#fff;display:inline-block;font-weight:700;margin-top:-80px;padding:0 20px;text-align:center;z-index:1000;position:relative;-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px}
-#homeBottomContent .fa,.btn-xs{color:#646061}
-#attorneyContent,#termsContent,.tab-content{text-align:left}
-.carouselText1 h1{font-size:42px;padding-bottom:0}
-#homeBottomContent,#homeTopContent{background-color:#cfbfaf;padding:30px 10px}
-.carouselText2 h5{margin-top:0}
-.line{height:1px;border-bottom:1px solid #646061;margin:10px}
+#carouselText1{color:#fff;border:10px solid #c3a088;display:inline-block;font-weight:700;margin-top:-80px;padding:0 20px;text-align:center;z-index:1000;position:relative;background-image:url(../img/woodTexture.jpg);-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px}
+#carouselText1 h1{font-size:42px;padding-bottom:0}
+#carouselText2 h3{font-size:16px;margin-top:0}
+.line{height:1px;border-bottom:1px solid #353133;margin:10px}
 #homeBottomContent{margin:0}
+.btn-sm,.btn-sm:hover{background-color:inherit;border:1px solid #353133}
 #homeBottomContent .col-sm-4{padding-bottom:20px}
-.btn-xs{background-color:inherit;border:1px solid #646061}
-.jumbotron{background-color:#4a4136;opacity:.8}
+#homeBottomContent .fa{color:#353133}
+#homeBottomContent .container .row .col-sm-4 a{color:#210F03;text-decoration:none}
+.btn-sm{color:#646061}
+.jumbotron{background-color:#4a2e1c}
 .jumbotron h1{color:#fff;font-size:42px;text-shadow:2px 1px 6px #000}
-#attorneyContent{padding:20px 10px}
+#attorneyContent{padding:20px 10px;text-align:left}
 #attorneyContent .row{padding:10px 0}
 #attorneyImage{align-items:center;justify-content:center;flex-direction:column;display:-webkit-inline-flex;-webkit-justify-content:center;-webkit-align-items:center;padding:20px 10px}
-#attorneyImage img{border:3px solid #646061;max-height:400px;width:auto}
-#navtabsContent li a{color:#4a4136}
-.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover{background-color:#e2d9cf}
-.tab-content{padding:30px}
+#attorneyImage img{border:3px solid #353133;max-height:400px;width:auto}
+#navtabsContent li a{color:#210F03}
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover{background-color:#d4bbaa}
+.tab-content{text-align:left;padding:30px}
 .bulletList{list-style-type:circle}
-#contactContent .row{padding:10px 0}
-#termsContent h3,#termsContent h4{padding-top:10px}
-#contactContent .contactTop{padding:10px;text-align:left;text-decoration:none}
-#contactContent .contactBottom{padding:10px}
+.contactTop{padding:10px 5px;text-align:left}
+.contactBottom{padding:10px}
+.contactBottom h2{font-size:20px;text-align:center}
+.contactBottom h3{font-size:16px;font-weight:700}
+#termsContent{padding-bottom:20px;text-align:left}
 .alphaList{list-style-type:lower-alpha}
 .numeralList{list-style-type:lower-roman}
-#termsContent h3{text-align:center}
