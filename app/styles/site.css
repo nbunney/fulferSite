@@ -1,210 +1,226 @@
 html,body {
-    color: #4a4136;
-    font-family: "Arial";
-    text-align: center;
+  color: #210F03;
+  font-family: "Arial";
+  text-align: center;
 }
 #navbar {
-    background-color: #4a4136;
-    border: none;
-    font-size: 16px;
-    opacity: 0.9;
+  background-color: #210F03;
+  border: none;
+  font-size: 16px;
+  opacity: 0.9;
 }
 #navbarContent ul li a {
-    color: white;
+  color: white;
 }
 #navbarContent ul li:hover {
-    background-color: #646061;
+  background-color: #353133;
 }
 #footer {
-    color: white;
-    background-color: #766856;
-    font-size: 0.7em;
-    min-height: 175px;
-    padding: 30px 10px 0;
-    text-align: left;
+  color: white;
+  background-color: #4a2e1c;
+  font-size: 0.7em;
+  min-height: 175px;
+  padding: 30px 10px 0;
+  text-align: left;
 }
 .footerBox {
-    border-left: 1px solid;
-    list-style-type: none;
+  border-left: 1px solid;
+  list-style-type: none;
 }
 .footerBox li {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 .footerBox a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 #inventawebFooter {
-    color: white;
-    background-color: #4a4136;
-    font-size: 0.7em;
-    height: 25px;
-    padding-top: 5px;
+  color: white;
+  background-color: #210F03;
+  display: block;
+  font-size: 0.7em;
+  height: 25px;
+  padding-top: 5px;
+}
+#badgeHolder {
+  display: block;
+  float: right;
+  margin-top: -55px;
 }
 .body {
-    background-color: #cfbfaf;
-    min-height: calc(100vh - 200px);
-    padding-top: 50px;
+  background-color: #c3a088;
+  min-height: calc(100vh - 200px);
+  padding-top: 50px;
 }
 #carouselContainer {
-    background-color: #cfbfaf;
+  background-color: #c3a088;
 }
 .carouselImage {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    min-height: 350px;
-    height: 50vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 350px;
+  height: 50vh;
 }
 #image1 {
-    background-image: url("/img/CourtHouse.jpg");
+  background-image: url("/img/CourtHouse.jpg");
 }
 #image2 {
-    background-image: url("/img/Courtroom.jpg");
+  background-image: url("/img/Courtroom.jpg");
 }
 #image3 {
-    background-image: url("/img/Books.jpg");
+  background-image: url("/img/Books.jpg");
 }
 .imageAttribution {
-    color: white;
-    display: block;
-    font-size: 0.7em;
-    left: 0;
-    margin: -30px 10px 0px 10px;
-    position: absolute;
-    z-index: 19;
+  color: white;
+  display: block;
+  font-size: 0.7em;
+  left: 0;
+  margin: 10px 10px 0px 10px;
+  position: absolute;
+  z-index: 19;
 }
 .imageAttribution p a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
-.carouselText1 {
-    background-color: #4a4136 ;
-    border: 10px solid #cfbfaf;
-    color: #fff;
-    display: inline-block;
-    font-weight: 700;
-    margin-top: -80px;
-    padding: 0px 20px;
-    text-align: center;
-    z-index: 1000;
-    position: relative;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+#carouselText1 {
+  color: #fff;
+  border: 10px solid #c3a088;
+  display: inline-block;
+  font-weight: 700;
+  margin-top: -80px;
+  padding: 0px 20px;
+  text-align: center;
+  z-index: 1000;
+  position: relative;
+  background-image: url(../img/woodTexture.jpg);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
 }
-.carouselText1 h1 {
-    font-size: 42px;
-    letter-spacing: 4px;
-    padding-bottom: 0px;
+#carouselText1 h1 {
+  font-size: 42px;
+  letter-spacing: 4px;
+  padding-bottom: 0px;
 }
-.carouselText1 h3 {
-    letter-spacing: 4px;
+#carouselText1 h2 {
+  letter-spacing: 4px;
 }
-.carouselText2 h5 {
-    letter-spacing: 4px;
-    margin-top: 0px;
+#carouselText2 h3 {
+  font-size: 16px;
+  letter-spacing: 4px;
+  margin-top: 0px;
 }
 .line {
-    height: 1px;
-    border-bottom: 1px solid #646061;
-    margin: 10px;
+  height: 1px;
+  border-bottom: 1px solid #353133;
+  margin: 10px;
 }
 #homeTopContent {
-    background-color: #cfbfaf;
-    padding: 30px 10px 30px 10px;
+  background-color: #c3a088;
+  padding: 30px 10px 30px 10px;
 }
 #homeBottomContent {
-    background-color: #cfbfaf;
-    padding: 30px 10px 30px 10px;
-    margin: 0px;
+  background-color: #c3a088;
+  margin: 0px;
+  padding: 30px 10px 30px 10px;
 }
 #homeBottomContent .col-sm-4 {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 #homeBottomContent .fa {
-    color: #646061;
+  color: #353133;
 }
-.btn-xs {
-    background-color: inherit;
-    border: solid 1px #646061;
-    color: #646061;
-    text-decoration: none;
+#homeBottomContent .container .row .col-sm-4 a {
+  color: #210F03;
+  text-decoration: none;
+}
+#homeBottomContent .container .row .col-sm-4 a:hover {
+  text-decoration: none;
+}
+.btn-sm {
+  background-color: inherit;
+  border: solid 1px #353133;
+  color: #646061;
+  text-decoration: none;
+}
+.btn-sm:hover {
+  background-color: inherit;
+  border: solid 1px #353133;
 }
 .jumbotron {
-    background-color: #4a4136;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    opacity: 0.8;
+  background-color: #4a2e1c;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .jumbotron h1 {
-    color: white;
-    font-size: 42px;
-    text-shadow: 2px 1px 6px black;
+  color: white;
+  font-size: 42px;
+  text-shadow: 2px 1px 6px black;
 }
 #attorneyContent {
-    padding: 20px 10px 20px 10px;
-    text-align: left;
+  padding: 20px 10px 20px 10px;
+  text-align: left;
 }
 #attorneyContent .row {
-    padding: 10px 0px 10px 0px;
+  padding: 10px 0px 10px 0px;
 }
 #attorneyImage {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    display: -webkit-inline-flex;
-    -webkit-justify-content: center;
-    -webkit-align-items: center;
-    padding: 20px 10px 20px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: -webkit-inline-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  padding: 20px 10px 20px 10px;
 }
 #attorneyImage img {
-    border: solid 3px #646061;
-    max-height: 400px;
-    width: auto;
+  border: solid 3px #353133;
+  max-height: 400px;
+  width: auto;
 }
 #navtabsContent li a {
-    color: #4a4136;
-    text-decoration: none;
+  color: #210F03;
+  text-decoration: none;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-    background-color: #e2d9cf;
+  background-color: #d4bbaa;
 }
 .tab-content {
-    text-align: left;
-    padding: 30px;
+  text-align: left;
+  padding: 30px;
 }
 .bulletList {
-    list-style-type: circle;
+  list-style-type: circle;
 }
-#contactContent .row {
-    padding: 10px 0px 10px 0px;
+.contactTop {
+  padding: 10px 5px 10px 5px;
+  text-align: left;
+  text-decoration: none;
 }
-#contactContent .contactTop {
-    padding: 10px;
-    text-align: left;
-    text-decoration: none;
+.contactBottom {
+  padding: 10px;
 }
-#contactContent .contactBottom {
-    padding: 10px;
+.contactBottom h2 {
+  font-size: 20px;
+  text-align: center;
 }
-.alphaList {
-    list-style-type: lower-alpha;
-}
-.numeralList {
-    list-style-type: lower-roman;
+.contactBottom h3 {
+  font-size: 16px;
+  font-weight: bold;
 }
 #termsContent {
-    text-align: left;
+  padding-bottom: 20px;
+  text-align: left;
 }
-#termsContent h3 {
-    text-align: center;
-    padding-top: 10px;
+.alphaList {
+  list-style-type: lower-alpha;
 }
-#termsContent h4 {
-    padding-top: 10px;
+.numeralList {
+  list-style-type: lower-roman;
 }

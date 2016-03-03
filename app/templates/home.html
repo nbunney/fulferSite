@@ -5,40 +5,40 @@
     <div class="carousel slide" id="carousel" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <div class="carouselImage" id="image1"></div>
           <div class="imageAttribution">
-            <p><a href="https://commons.wikimedia.org/wiki/File:CourtGavel.JPG">
-"Old gavel and court minutes displayed at the Minnesota Judicial Center"</a> by <a href="https://commons.wikimedia.org/wiki/User:Jonathunder">Jonathunder</a>, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY</a> / Cropped and recolored from original</p>
+            <p><a href="https://commons.wikimedia.org/wiki/File:Missoula_County_Courthouse_in_Morning.JPG">
+"Missoula County Courthouse"</a> by Robby Robinette, used under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY</a> / Cropped, Photoshopped, and recolored from original</p>
           </div>
+          <div class="carouselImage" id="image1"></div>
         </div>
         <div class="item">
-          <div class="carouselImage" id="image2"></div>
           <div class="imageAttribution">
             <p><a href="https://commons.wikimedia.org/wiki/File:Courtroom.jpg">
 "One of the original Victorian Courtrooms at the Galleries of justice Museum"</a> by Fayerollinson, used under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY</a> / Cropped and recolored from original</p>
           </div>
+          <div class="carouselImage" id="image2"></div>
         </div>
         <div class="item">
-          <div class="carouselImage" id="image3"></div>
           <div class="imageAttribution">
             <p><a href="https://www.flickr.com/photos/limaoscarjuliet/225249268/in/photostream/">
 "the law"</a> by <a href="https://www.flickr.com/photos/limaoscarjuliet/">Pawel Loj</a>, used under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / Cropped and recolored from original</p>
           </div>
+          <div class="carouselImage" id="image3"></div>
         </div>
       </div>
     </div>
   </div>
   <!-- text over carousel -->
-  <div class="row carouselText1">
+  <div class="row" id="carouselText1">
     <div class="col-12-xs">
-      <h1>RICHARD L. FULFER</h1>
-      <div class="line"></div>
-      <h3>Attorney at Law</h3>
+      <h1>{{pageInfo.h1Tag}}</h1>
+      <div class="line" style="border-color: white;"></div>
+      <h2>Attorney at Law</h2>
     </div>
   </div>
-  <div class="row carouselText2">
+  <div class="row" id="carouselText2">
     <div class="col-12-xs">
-      <h5>Over 35 Years of Experience</h5>
+      <h3>Over 35 Years of Experience</h3>
     </div>
   </div>
 </div>
@@ -58,31 +58,37 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <span class="fa-stack fa-3x">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-briefcase fa-stack-1x"></i>
-        </span>
-        <h4>ESTATE PLANNING, PROBATE <br /> & TRUST ADMINISTRATION</h4>
+        <a href="practice#estate">
+          <span class="fa-stack fa-3x">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-briefcase fa-stack-1x"></i>
+          </span>
+        </a>
+        <a href="practice#estate"><h4>ESTATE PLANNING, PROBATE <br /> & TRUST ADMINISTRATION</h4></a>
         <p>Let us help you plan to ensure that your loved ones are protected and provided for in your absence.</p>
-        <a href="practice#estate" class="btn-xs btn-default" role="button">Read More</a>
+        <a href="practice#estate" class="btn-sm btn-default" role="button">Read More</a>
       </div>
       <div class="col-sm-4">
-        <span class="fa-stack fa-3x">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-gavel fa-stack-1x"></i>
-        </span>
-        <h4>DUI & CRIMINAL LAW</h4>
+        <a href="practice#dui">
+          <span class="fa-stack fa-3x">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-gavel fa-stack-1x"></i>
+          </span>
+        </a>
+          <a href="practice#dui"><h4>DUI & CRIMINAL LAW</h4></a>
         <p>Richard understands legal complexities, and works to protect the rights and secure the best outcome for his clients facing criminal charges.</p>
-        <a href="practice#dui" class="btn-xs btn-default" role="button">Read More</a>
+        <a href="practice#dui" class="btn-sm btn-default" role="button">Read More</a>
       </div>
       <div class="col-sm-4">
-        <span class="fa-stack fa-3x">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-users fa-stack-1x"></i>
-        </span>
-        <h4>FAMILY LAW</h4>
+        <a href="practice#family">
+          <span class="fa-stack fa-3x">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-users fa-stack-1x"></i>
+          </span>
+        </a>
+          <a href="practice#family"><h4>FAMILY LAW</h4></a>
         <p>Richard is experienced in providing legal counsel to individuals dealing with critical issues such as divorce, separation, and child custody.</p>
-        <a href="practice#family" class="btn-xs btn-default" role="button">Read More</a>
+        <a href="practice#family" class="btn-sm btn-default" role="button">Read More</a>
       </div>
     </div>
   </div>
@@ -94,6 +100,12 @@
 
 	});
 })(jQuery);
+    
+// carousel controls
+$('.carousel').carousel({
+  interval: 5000,
+  pause: "false"
+})
 
 // function to show/hide image attribution
 $(document).ready(function(){
