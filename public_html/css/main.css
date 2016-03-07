@@ -1,5 +1,6 @@
 .editButtons,.editor{float:left;width:100%}
 .fa,.fa-stack{display:inline-block}
+#carouselText1,.fa-fw,.fa-li,.fa-stack-1x,.fa-stack-2x,body,html{text-align:center}
 .fa-ul,.footerBox{list-style-type:none}
 #carouselText1 h1,#carouselText1 h2,#carouselText2 h3{letter-spacing:4px}
 #homeBottomContent .container .row .col-sm-4 a:hover,#navtabsContent li a,.btn-sm,.contactTop,.fancybox-nav,.footerBox a,.imageAttribution p a{text-decoration:none}
@@ -16,10 +17,10 @@
 .fa-3x{font-size:3em}
 .fa-4x{font-size:4em}
 .fa-5x{font-size:5em}
-.fa-fw{width:1.28571429em;text-align:center}
+.fa-fw{width:1.28571429em}
 .fa-ul{padding-left:0;margin-left:2.14285714em}
 .fa-ul>li{position:relative}
-.fa-li{position:absolute;left:-2.14285714em;width:2.14285714em;top:.14285714em;text-align:center}
+.fa-li{position:absolute;left:-2.14285714em;width:2.14285714em;top:.14285714em}
 .fa-li.fa-lg{left:-1.85714286em}
 .fa-border{padding:.2em .25em .15em;border:.08em solid #eee;border-radius:.1em}
 .pull-right{float:right}
@@ -41,7 +42,7 @@
 .fa-flip-vertical{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);-webkit-transform:scale(1,-1);-ms-transform:scale(1,-1);transform:scale(1,-1)}
 :root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{filter:none}
 .fa-stack{position:relative;width:2em;height:2em;line-height:2em;vertical-align:middle}
-.fa-stack-1x,.fa-stack-2x{position:absolute;left:0;width:100%;text-align:center}
+.fa-stack-1x,.fa-stack-2x{position:absolute;left:0;width:100%}
 .fa-stack-1x{line-height:inherit}
 .fa-stack-2x{font-size:2em}
 .fa-inverse{color:#fff}
@@ -614,47 +615,46 @@
 .onoffswitch-inner:after{content:"NO";padding-right:10px;color:#999;background-color:#EEE;text-align:right}
 #footer,#navbarContent ul li a{color:#fff}
 .onoffswitch-switch{position:absolute;top:0;bottom:0;right:40px;width:18px;margin:4px;background:#fff;border:2px solid #999;border-radius:20px;-webkit-transition:right .2s ease-in,-webkit-box-shadow .2s ease-in;transition:right .2s ease-in,box-shadow .2s ease-in}
+#footer,#navbarContent ul li:hover{background-color:#646061}
+#carouselContainer,#homeTopContent,.body{background-color:#A49689}
 .carouselImage,.jumbotron{background-size:cover;background-repeat:no-repeat;background-position:center center}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner{margin-left:0}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
-body,html{color:#210F03;font-family:Arial;text-align:center}
-#navbar{background-color:#210F03;border:none;font-size:16px;opacity:.9}
-#navbarContent ul li:hover{background-color:#353133}
-#footer{background-color:#4a2e1c;font-size:.7em;min-height:175px;padding:30px 10px 0;text-align:left}
+body,html{color:#3D3B3C;font-family:Arial}
+#navbar{background-color:#3D3B3C;border:none;font-size:16px;opacity:.9}
+#footer{font-size:.7em;min-height:175px;padding:30px 10px 0;text-align:left}
 .footerBox{border-left:1px solid}
 .footerBox li{padding-bottom:10px}
 .footerBox a{color:inherit}
 #inventawebFooter,.imageAttribution{color:#fff;display:block;font-size:.7em}
-#inventawebFooter{background-color:#210F03;height:25px;padding-top:5px}
+#inventawebFooter{background-color:#3D3B3C;height:25px;padding-top:5px}
 #badgeHolder{display:block;float:right;margin-top:-55px}
-.body{background-color:#c3a088;min-height:calc(100vh - 200px);padding-top:50px}
-#homeBottomContent,#homeTopContent{background-color:#c3a088;padding:30px 10px}
-#carouselContainer{background-color:#c3a088}
+.body{min-height:calc(100vh - 200px);padding-top:50px}
 .carouselImage{min-height:350px;height:50vh}
 #image1{background-image:url(/img/CourtHouse.jpg)}
 #image2{background-image:url(/img/Courtroom.jpg)}
 #image3{background-image:url(/img/Books.jpg)}
 .imageAttribution{left:0;margin:10px 10px 0;position:absolute;z-index:19}
 .imageAttribution p a{color:inherit}
-#carouselText1{color:#fff;border:10px solid #c3a088;display:inline-block;font-weight:700;margin-top:-80px;padding:0 20px;text-align:center;z-index:1000;position:relative;background-image:url(../img/woodTexture.jpg);-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px}
+#carouselText1{color:#fff;border:10px solid #A49689;display:inline-block;font-weight:700;margin-top:-80px;padding:0 20px;z-index:1000;position:relative;background-image:url(../img/woodTexture.jpg);-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px}
+#homeBottomContent .fa,.btn-sm{color:#646061}
 #carouselText1 h1{font-size:42px;padding-bottom:0}
 #carouselText2 h3{font-size:16px;margin-top:0}
-.line{height:1px;border-bottom:1px solid #353133;margin:10px}
-#homeBottomContent{margin:0}
-.btn-sm,.btn-sm:hover{background-color:inherit;border:1px solid #353133}
+.line{height:1px;border-bottom:1px solid #3D3B3C;margin:10px}
+#homeTopContent{padding:30px 10px}
+#homeBottomContent{background-color:#E6DED9;margin:0;padding:30px 10px}
+.btn-sm,.btn-sm:hover{background-color:inherit;border:1px solid #646061}
 #homeBottomContent .col-sm-4{padding-bottom:20px}
-#homeBottomContent .fa{color:#353133}
-#homeBottomContent .container .row .col-sm-4 a{color:#210F03;text-decoration:none}
-.btn-sm{color:#646061}
-.jumbotron{background-color:#4a2e1c}
-.jumbotron h1{color:#fff;font-size:42px;text-shadow:2px 1px 6px #000}
+#homeBottomContent .container .row .col-sm-4 a{color:#646061;text-decoration:none}
+.jumbotron{background-color:#646061}
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover,.tab-content{background-color:#E6DED9}
+.jumbotron h1{color:#fff;font-size:42px}
 #attorneyContent{padding:20px 10px;text-align:left}
 #attorneyContent .row{padding:10px 0}
 #attorneyImage{align-items:center;justify-content:center;flex-direction:column;display:-webkit-inline-flex;-webkit-justify-content:center;-webkit-align-items:center;padding:20px 10px}
-#attorneyImage img{border:3px solid #353133;max-height:400px;width:auto}
-#navtabsContent li a{color:#210F03}
-.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover{background-color:#d4bbaa}
-.tab-content{text-align:left;padding:30px}
+#attorneyImage img{border:3px solid #646061;max-height:400px;width:auto}
+#navtabsContent li a{color:#3D3B3C}
+.tab-content{text-align:left;padding:30px;margin-bottom:30px}
 .bulletList{list-style-type:circle}
 .contactTop{padding:10px 5px;text-align:left}
 .contactBottom{padding:10px}
