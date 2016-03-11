@@ -85,8 +85,7 @@ html,body {
   text-decoration: none;
 }
 #carouselText1 {
-  color: #fff;
-  border: 10px solid #A49689;
+  color: #000;
   display: inline-block;
   font-weight: 700;
   margin-top: -80px;
@@ -94,7 +93,7 @@ html,body {
   text-align: center;
   z-index: 1000;
   position: relative;
-  background-image: url(../img/woodTexture.jpg);
+  background-color: #A49689;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
@@ -102,20 +101,24 @@ html,body {
 #carouselText1 h1 {
   font-size: 42px;
   letter-spacing: 4px;
+  margin-bottom: 0px;
   padding-bottom: 0px;
 }
 #carouselText1 h2 {
   letter-spacing: 4px;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 #carouselText2 h3 {
   font-size: 16px;
   letter-spacing: 4px;
-  margin-top: 0px;
+  margin-top: 10px;
 }
 .line {
   height: 1px;
   border-bottom: 1px solid #3D3B3C;
-  margin: 10px;
+  margin: auto;
+  text-align: center;
 }
 #homeTopContent {
   background-color: #A49689;
@@ -161,7 +164,7 @@ html,body {
   background-position: center center;
 }
 .jumbotron h1 {
-  color: white;
+  color: #000;
   font-size: 42px;
 }
 #attorneyContent {
