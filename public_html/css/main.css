@@ -631,9 +631,9 @@ body,html{color:#3D3B3C;font-family:Arial}
 #badgeHolder{display:block;float:right;margin-top:-55px}
 .body{min-height:calc(100vh - 200px);padding-top:50px}
 .carouselImage{min-height:350px;height:50vh}
-#image1{background-image:url(/img/CourtHouse.jpg)}
+#image1{background-image:url(/img/SupremeCourt.jpg)}
 #image2{background-image:url(/img/Courtroom.jpg)}
-#image3{background-image:url(/img/Books.jpg)}
+#image3{background-image:url(/img/Justice.jpg)}
 .imageAttribution{left:0;margin:10px 10px 0;position:absolute;z-index:19}
 .imageAttribution p a{color:inherit}
 #carouselText1{color:#fff;border:10px solid #A49689;display:inline-block;font-weight:700;margin-top:-80px;padding:0 20px;z-index:1000;position:relative;background-image:url(../img/woodTexture.jpg);-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px}
@@ -646,6 +646,8 @@ body,html{color:#3D3B3C;font-family:Arial}
 .btn-sm,.btn-sm:hover{background-color:inherit;border:1px solid #646061}
 #homeBottomContent .col-sm-4{padding-bottom:20px}
 #homeBottomContent .container .row .col-sm-4 a{color:#646061;text-decoration:none}
+@media (min-width:768px){.hiddenArea{display:none}
+}
 .jumbotron{background-color:#646061}
 .nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover,.tab-content{background-color:#E6DED9}
 .jumbotron h1{color:#fff;font-size:42px}
