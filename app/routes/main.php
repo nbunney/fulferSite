@@ -44,7 +44,10 @@ $app->get('/', $authenticate, function() use ($app){
   $data=[];
   $dbh = getConnection();
   $data = mergeEnv($data, 'home');
-//dump($data); die();
+
+  $cyr = date('Y');
+  $data['years'] = $cyr - 1981;
+
   $app->render('home.html', $data);
 })->name('home');
 
