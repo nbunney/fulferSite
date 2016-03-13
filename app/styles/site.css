@@ -1,6 +1,6 @@
 html,body {
-  color: #3D3B3C;
-  font-family: "Arial";
+  color: #000;
+  font-family: 'Ariel', sans-serif;
   text-align: center;
 }
 #navbar {
@@ -129,23 +129,22 @@ html,body {
   margin: 0px;
   padding: 30px 10px 30px 10px;
 }
-#homeBottomContent .col-sm-4 {
+#homeBottomContent .col-md-3 {
   padding-bottom: 20px;
+  padding-top: 20px;
 }
-#homeBottomContent .fa {
-  color: #646061;
+#homeBottomContent img {
+  width: 70px;
+  padding: 5px;
+  border: solid 5px #000;
+  border-radius: 20px;
 }
-#homeBottomContent .container .row .col-sm-4 a {
-  color: #646061;
+#homeBottomContent .container .row .col-md-3 a {
+  color: inherit;
   text-decoration: none;
 }
-#homeBottomContent .container .row .col-sm-4 a:hover {
+#homeBottomContent .container .row .col-md-3 a:hover {
   text-decoration: none;
-}
-@media (min-width: 768px) {
-  .hiddenArea {
-    display: none;
-  }
 }
 .btn-sm {
   background-color: inherit;
@@ -190,7 +189,7 @@ html,body {
   width: auto;
 }
 #navtabsContent li a {
-  color: #3D3B3C;
+  color: inherit;
   text-decoration: none;
 }
 .nav-tabs > li.active > a,
