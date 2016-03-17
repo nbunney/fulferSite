@@ -18,17 +18,10 @@ html,body {
 #footer {
   color: white;
   background-color: #646061;
-  font-size: 0.7em;
-  min-height: 175px;
-  padding: 30px 10px 0;
-  text-align: left;
-}
-.footerBox {
-  border-left: 1px solid;
-  list-style-type: none;
-}
-.footerBox li {
-  padding-bottom: 10px;
+  font-size: 14px;
+  min-height: 30px;
+  padding: 15px 0px 10px 0px;
+  text-align: center;
 }
 .footerBox a {
   color: inherit;
@@ -49,7 +42,7 @@ html,body {
 }
 .body {
   background-color: #A49689;
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 80px);
   padding-top: 50px;
 }
 #carouselContainer {
@@ -71,6 +64,9 @@ html,body {
 #image3 {
   background-image: url("/img/Justice.jpg");
 }
+#image4 {
+  background-image: url("/img/Will.jpg");
+}
 .imageAttribution {
   color: white;
   display: block;
@@ -88,7 +84,7 @@ html,body {
   color: #000;
   display: inline-block;
   font-weight: 700;
-  margin-top: -80px;
+  margin-top: -50px;
   padding: 0px 20px;
   text-align: center;
   z-index: 1000;
@@ -99,20 +95,21 @@ html,body {
   border-radius: 20px;
 }
 #carouselText1 h1 {
-  font-size: 42px;
-  letter-spacing: 4px;
+  font-size: 32px;
+  letter-spacing: 2px;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
 #carouselText1 h2 {
-  letter-spacing: 4px;
+  font-size: 20px;
+  letter-spacing: 5px;
   margin-top: 0px;
   padding-top: 0px;
 }
 #carouselText2 h3 {
-  font-size: 16px;
-  letter-spacing: 4px;
+  font-size: 14px;
   margin-top: 10px;
+  letter-spacing: 2px;
 }
 .line {
   height: 1px;
@@ -124,6 +121,9 @@ html,body {
   background-color: #A49689;
   padding: 30px 10px 30px 10px;
 }
+#homeTopContent h4, #homeBottomContent h4 {
+  font-size: 16px;
+}
 #homeBottomContent {
   background-color: #E6DED9;
   margin: 0px;
@@ -134,10 +134,14 @@ html,body {
   padding-top: 20px;
 }
 #homeBottomContent img {
-  width: 70px;
+  width: 50px;
   padding: 5px;
-  border: solid 5px #000;
-  border-radius: 20px;
+  border: solid 2px #000;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+#homeBottomContent p {
+  margin-bottom: 20px;
 }
 #homeBottomContent .container .row .col-md-3 a {
   color: inherit;
@@ -164,7 +168,7 @@ html,body {
 }
 .jumbotron h1 {
   color: #000;
-  font-size: 42px;
+  font-size: 28px;
 }
 #attorneyContent {
   padding: 20px 10px 20px 10px;
@@ -201,13 +205,16 @@ html,body {
   background-color: #E6DED9;
   text-align: left;
   padding: 30px;
-    margin-bottom: 30px;
+  margin-bottom: 30px;
+}
+.tab-content h2 {
+  font-size: 20px;
 }
 .bulletList {
   list-style-type: circle;
 }
 .contactTop {
-  padding: 10px 5px 10px 5px;
+  padding: 10px;
   text-align: left;
   text-decoration: none;
 }
@@ -216,6 +223,8 @@ html,body {
 }
 .contactBottom h2 {
   font-size: 20px;
+  font-weight: bold;
+  padding-top: 35px;
   text-align: center;
 }
 .contactBottom h3 {
@@ -225,6 +234,12 @@ html,body {
 #termsContent {
   padding-bottom: 20px;
   text-align: left;
+}
+#termsContent h2 {
+  font-size: 20px;
+}
+#termsContent h3 {
+  font-size: 16px;
 }
 .alphaList {
   list-style-type: lower-alpha;
