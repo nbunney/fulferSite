@@ -83,7 +83,7 @@
 
 	});
 })(jQuery);
-    
+
 // tab script
 $('.nav-tabs a[href="#estate"]').click(function (e) {
   e.preventDefault()
@@ -102,10 +102,13 @@ $('.nav-tabs a[href="#personal"]').click(function (e) {
   $(this).tab('show')
 })
 
+var hash = window.location.hash;
+hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
 // function to show tab by id
 $(function() {
     var hash = document.location.hash;
-    
+
     if (hash) {
         console.log(hash);
         $('.nav-tabs a[href='+hash+']').tab('show');
