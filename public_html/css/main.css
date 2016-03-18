@@ -620,7 +620,7 @@
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
 body,html{color:#000;font-family:Ariel,sans-serif}
 #navbar{background-color:#3D3B3C;border:none;font-size:16px;opacity:.9}
-#footer{font-size:14px;min-height:30px;padding:15px 0 10px}
+#footer{font-size:14px;min-height:30px;padding:7px 0 0}
 .footerBox a{color:inherit}
 #inventawebFooter,.imageAttribution{color:#fff;display:block;font-size:.7em}
 #inventawebFooter{background-color:#3D3B3C;height:25px;padding-top:5px}
