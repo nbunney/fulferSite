@@ -34,11 +34,12 @@ html,body {
   font-size: 0.7em;
   height: 25px;
   padding-top: 5px;
+  position: relative;
 }
 #badgeHolder {
-  display: block;
-  float: right;
-  margin-top: -55px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 }
 .body {
   background-color: #A49689;

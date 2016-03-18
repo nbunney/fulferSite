@@ -610,7 +610,6 @@
 .onoffswitch-inner:after,.onoffswitch-inner:before{float:left;padding:0;width:50%;height:26px;font:700 14px/26px Trebuchet,Arial,sans-serif;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .onoffswitch-inner:before{content:"YES";padding-left:10px;color:#FFF;background-color:#2FCCFF}
 .onoffswitch-inner:after{content:"NO";padding-right:10px;color:#999;background-color:#EEE;text-align:right}
-#footer,#navbarContent ul li a{color:#fff}
 #carouselText1,#footer,.line,body,html{text-align:center}
 .onoffswitch-switch{position:absolute;top:0;bottom:0;right:40px;width:18px;margin:4px;background:#fff;border:2px solid #999;border-radius:20px;-webkit-transition:right .2s ease-in,-webkit-box-shadow .2s ease-in;transition:right .2s ease-in,box-shadow .2s ease-in}
 #footer,#navbarContent ul li:hover{background-color:#646061}
@@ -620,11 +619,12 @@
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
 body,html{color:#000;font-family:Ariel,sans-serif}
 #navbar{background-color:#3D3B3C;border:none;font-size:16px;opacity:.9}
-#footer{font-size:14px;min-height:30px;padding:7px 0 0}
+#navbarContent ul li a{color:#fff}
+#footer{color:#fff;font-size:14px;min-height:30px;padding:7px 0 0}
 .footerBox a{color:inherit}
 #inventawebFooter,.imageAttribution{color:#fff;display:block;font-size:.7em}
-#inventawebFooter{background-color:#3D3B3C;height:25px;padding-top:5px}
-#badgeHolder{display:block;float:right;margin-top:-55px}
+#inventawebFooter{background-color:#3D3B3C;height:25px;padding-top:5px;position:relative}
+#badgeHolder{position:absolute;right:0;bottom:0}
 .body{min-height:calc(100vh - 80px);padding-top:50px}
 .carouselImage{min-height:350px;height:50vh}
 #image1{background-image:url(/img/SupremeCourt.jpg)}
