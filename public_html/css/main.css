@@ -1,5 +1,6 @@
 .editButtons,.editor{float:left;width:100%}
 .fa,.fa-stack{display:inline-block}
+#carouselText1,#footer,.fa-fw,.fa-li,.fa-stack-1x,.fa-stack-2x,.line,body,html{text-align:center}
 #homeBottomContent .container .row .col-md-3 a:hover,#navtabsContent li a,.btn-sm,.contactTop,.fancybox-nav,.footerBox a,.imageAttribution p a{text-decoration:none}
 .approveButton,.cancelButton,.editButton{cursor:pointer;z-index:102}
 .editButtons{margin-top:-14px}
@@ -14,10 +15,10 @@
 .fa-3x{font-size:3em}
 .fa-4x{font-size:4em}
 .fa-5x{font-size:5em}
-.fa-fw{width:1.28571429em;text-align:center}
+.fa-fw{width:1.28571429em}
 .fa-ul{padding-left:0;margin-left:2.14285714em;list-style-type:none}
 .fa-ul>li{position:relative}
-.fa-li{position:absolute;left:-2.14285714em;width:2.14285714em;top:.14285714em;text-align:center}
+.fa-li{position:absolute;left:-2.14285714em;width:2.14285714em;top:.14285714em}
 .fa-li.fa-lg{left:-1.85714286em}
 .fa-border{padding:.2em .25em .15em;border:.08em solid #eee;border-radius:.1em}
 .pull-right{float:right}
@@ -39,7 +40,7 @@
 .fa-flip-vertical{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);-webkit-transform:scale(1,-1);-ms-transform:scale(1,-1);transform:scale(1,-1)}
 :root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{filter:none}
 .fa-stack{position:relative;width:2em;height:2em;line-height:2em;vertical-align:middle}
-.fa-stack-1x,.fa-stack-2x{position:absolute;left:0;width:100%;text-align:center}
+.fa-stack-1x,.fa-stack-2x{position:absolute;left:0;width:100%}
 .fa-stack-1x{line-height:inherit}
 .fa-stack-2x{font-size:2em}
 .fa-inverse{color:#fff}
@@ -610,8 +611,6 @@
 .onoffswitch-inner:after,.onoffswitch-inner:before{float:left;padding:0;width:50%;height:26px;font:700 14px/26px Trebuchet,Arial,sans-serif;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .onoffswitch-inner:before{content:"YES";padding-left:10px;color:#FFF;background-color:#2FCCFF}
 .onoffswitch-inner:after{content:"NO";padding-right:10px;color:#999;background-color:#EEE;text-align:right}
-#footer,#navbarContent ul li a{color:#fff}
-#carouselText1,#footer,.line,body,html{text-align:center}
 .onoffswitch-switch{position:absolute;top:0;bottom:0;right:40px;width:18px;margin:4px;background:#fff;border:2px solid #999;border-radius:20px;-webkit-transition:right .2s ease-in,-webkit-box-shadow .2s ease-in;transition:right .2s ease-in,box-shadow .2s ease-in}
 #footer,#navbarContent ul li:hover{background-color:#646061}
 #carouselContainer,#carouselText1,#homeTopContent,.body{background-color:#A49689}
@@ -620,12 +619,13 @@
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
 body,html{color:#000;font-family:Ariel,sans-serif}
 #navbar{background-color:#3D3B3C;border:none;font-size:16px}
-#footer{font-size:14px;min-height:30px;padding:7px 0 0}
+#navbarContent ul li a{color:#fff}
+#footer{color:#fff;font-size:14px;min-height:30px;padding:7px 0 0}
 .footerBox a{color:inherit}
 #inventawebFooter,.imageAttribution{color:#fff;display:block;font-size:.7em}
 #inventawebFooter{background-color:#3D3B3C;height:25px;padding-top:5px;position:relative}
 #badgeHolder{position:absolute;right:0;bottom:0}
-.body{min-height:calc(100vh - 80px);padding-top:50px}
+.body{min-height:calc(100vh - 60px);padding-top:50px}
 .carouselImage{min-height:350px;height:50vh}
 #image1{background-image:url(/img/SupremeCourt.jpg)}
 #image2{background-image:url(/img/Courtroom.jpg)}
@@ -633,7 +633,8 @@ body,html{color:#000;font-family:Ariel,sans-serif}
 #image4{background-image:url(/img/Will.jpg)}
 .imageAttribution{left:0;margin:10px 10px 0;position:absolute;z-index:19}
 .imageAttribution p a{color:inherit}
-#carouselText1{color:#000;display:inline-block;font-weight:700;margin-top:-50px;padding:0 20px;z-index:1000;position:relative;-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px}
+#carousel{border-bottom:solid 3px #000}
+#carouselText1{color:#000;display:inline-block;font-weight:700;margin-top:-50px;padding:0 20px;z-index:1000;position:relative;-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px;border:3px solid #000}
 #carouselText1 h1{font-size:32px;letter-spacing:2px;margin-bottom:0;padding-bottom:0}
 #carouselText1 h2{font-size:20px;letter-spacing:5px;margin-top:0;padding-top:0}
 #carouselText2 h3{font-size:14px;margin-top:10px;letter-spacing:2px}
@@ -649,7 +650,7 @@ body,html{color:#000;font-family:Ariel,sans-serif}
 .btn-sm{color:#646061}
 .jumbotron{background-color:#646061}
 .nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover,.tab-content{background-color:#E6DED9}
-.jumbotron h1{color:#000;font-size:28px}
+.jumbotron h1{color:#000;font-size:26px}
 #attorneyContent{padding:20px 10px;text-align:left}
 #attorneyContent .row{padding:10px 0}
 #attorneyImage{align-items:center;justify-content:center;flex-direction:column;display:-webkit-inline-flex;-webkit-justify-content:center;-webkit-align-items:center;padding:20px 10px}
@@ -658,7 +659,7 @@ body,html{color:#000;font-family:Ariel,sans-serif}
 .tab-content{text-align:left;padding:30px;margin-bottom:30px}
 .contactBottom,.contactTop{padding:10px}
 .tab-content h2{font-size:20px}
-.bulletList{list-style-type:circle}
+.bulletList{list-style-type:disc}
 .contactTop{text-align:left}
 .contactBottom h2{font-size:20px;font-weight:700;padding-top:35px;text-align:center}
 .contactBottom h3{font-size:16px;font-weight:700}
