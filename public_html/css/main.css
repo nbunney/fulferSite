@@ -635,7 +635,7 @@ body,html{color:#000;font-family:Ariel,sans-serif}
 .imageAttribution p a{color:inherit}
 #carousel{border-bottom:solid 3px #000}
 #carouselText1{color:#000;display:inline-block;font-weight:700;margin-top:-50px;padding:0 20px;z-index:1000;position:relative;border:3px solid #000}
-#carouselText1 h1{font-size:32px;letter-spacing:2px;margin-bottom:0;padding-bottom:0}
+#carouselText1 h1{font-size:28px;letter-spacing:2px;margin-bottom:0;padding-bottom:0}
 #carouselText1 h2{font-size:20px;letter-spacing:5px;margin-top:0;padding-top:0}
 #carouselText2 h3{font-size:14px;margin-top:10px;letter-spacing:2px}
 .line{height:1px;border-bottom:1px solid #3D3B3C;margin:auto}
