@@ -614,7 +614,7 @@
 #carouselText1,#footer,.line,body,html{text-align:center}
 .onoffswitch-switch{position:absolute;top:0;bottom:0;right:40px;width:18px;margin:4px;background:#fff;border:2px solid #999;border-radius:20px;-webkit-transition:right .2s ease-in,-webkit-box-shadow .2s ease-in;transition:right .2s ease-in,box-shadow .2s ease-in}
 #footer,#navbarContent ul li:hover{background-color:#646061}
-#carouselContainer,#carouselText1,#homeTopContent,.body{background-color:#A49689}
+#carouselContainer,#homeTopContent,.body{background-color:#A49689}
 .carouselImage,.jumbotron{background-size:cover;background-repeat:no-repeat;background-position:center center}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner{margin-left:0}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
@@ -634,8 +634,8 @@ body,html{color:#000;font-family:Ariel,sans-serif}
 .imageAttribution{left:0;margin:10px 10px 0;position:absolute;z-index:19}
 .imageAttribution p a{color:inherit}
 #carousel{border-bottom:solid 3px #000}
-#carouselText1{color:#000;display:inline-block;font-weight:700;margin-top:-50px;padding:0 20px;z-index:1000;position:relative;border:3px solid #000}
-#carouselText1 h1{font-size:28px;letter-spacing:2px;margin-bottom:0;padding-bottom:0}
+#carouselText1{color:#000;display:inline-block;font-weight:700;margin-top:-50px;padding:0 20px;z-index:1000;position:relative;background-color:#E6DED9;border:3px solid #000}
+#carouselText1 h1{font-size:28px;letter-spacing:2px;margin-top:10px;margin-bottom:10px;padding-bottom:0}
 #carouselText1 h2{font-size:20px;letter-spacing:5px;margin-top:0;padding-top:0}
 #carouselText2 h3{font-size:14px;margin-top:10px;letter-spacing:2px}
 .line{height:1px;border-bottom:1px solid #3D3B3C;margin:auto}
@@ -668,3 +668,9 @@ body,html{color:#000;font-family:Ariel,sans-serif}
 #termsContent h3{font-size:16px}
 .alphaList{list-style-type:lower-alpha}
 .numeralList{list-style-type:lower-roman}
+@media(max-width:767px){#carouselText1{margin-top:10px}
+.footerBox{padding-bottom:5px}
+.nav>li>a{padding:10px}
+.nav-tabs>li>a{border:1px solid #646061;margin-top:2px}
+.callNow{font-size:20px}
+}

@@ -92,14 +92,15 @@ html,body {
   text-align: center;
   z-index: 1000;
   position: relative;
-  background-color: #A49689;
+  background-color: #E6DED9;
 
   border: solid 3px #000;
 }
 #carouselText1 h1 {
   font-size: 28px;
   letter-spacing: 2px;
-  margin-bottom: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding-bottom: 0px;
 }
 #carouselText1 h2 {
@@ -248,4 +249,23 @@ html,body {
 }
 .numeralList {
   list-style-type: lower-roman;
+}
+
+@media(max-width: 767px){
+  #carouselText1{
+    margin-top: 10px;
+  }
+  .footerBox{
+    padding-bottom: 5px;
+  }
+  .nav>li>a{
+    padding: 10px;
+  }
+  .nav-tabs>li>a{
+    border: 1px solid rgb(100, 96, 97);
+    margin-top: 2px;
+  }
+  .callNow{
+    font-size: 20px;
+  }
 }
