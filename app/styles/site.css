@@ -93,13 +93,11 @@ html,body {
   z-index: 1000;
   position: relative;
   background-color: #A49689;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
+
   border: solid 3px #000;
 }
 #carouselText1 h1 {
-  font-size: 32px;
+  font-size: 28px;
   letter-spacing: 2px;
   margin-bottom: 0px;
   padding-bottom: 0px;
