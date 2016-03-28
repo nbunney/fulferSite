@@ -59,12 +59,9 @@ html,body {
   background-image: url("/img/SupremeCourt.jpg");
 }
 #image2 {
-  background-image: url("/img/Courtroom.jpg");
-}
-#image3 {
   background-image: url("/img/Justice.jpg");
 }
-#image4 {
+#image3 {
   background-image: url("/img/Will.jpg");
 }
 .imageAttribution {
@@ -84,7 +81,7 @@ html,body {
   border-bottom: solid 3px #000;
 }
 #carouselText1 {
-  color: #000;
+  color: #fff;
   display: inline-block;
   font-weight: 700;
   margin-top: -50px;
@@ -92,8 +89,7 @@ html,body {
   text-align: center;
   z-index: 1000;
   position: relative;
-  background-color: #E6DED9;
-
+  background-color: #3D3B3C;
   border: solid 3px #000;
 }
 #carouselText1 h1 {
